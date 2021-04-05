@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Главная
+    Категория
 
 @endsection

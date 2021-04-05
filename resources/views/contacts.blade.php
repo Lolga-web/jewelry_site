@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Главная
+    Контакты
 
 @endsection
