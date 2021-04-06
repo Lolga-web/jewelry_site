@@ -35,11 +35,11 @@
                     @yield('content')
                 </main>
             
-            </div>           
-        </div>
-  
-        <script src="{{ asset('js/functions.js') }}"></script>
-               
+            </div> 
+            
+            @include('footer')
+        </div>                 
     </div>
+    <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>

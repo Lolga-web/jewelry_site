@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WorksController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\DBController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,13 @@ Route::get('index', [HomeController::class, 'index']);
 Route::name('catalog.')
     ->prefix('catalog')
     ->group(function () {
-        Route::get('/category/{slug}', [CatalogController::class, 'show'])->name('show');
+        Route::get('/category/{slug}', [CatalogController::class, 'show'])->name('category.show');
     });
 
 Route::get('works', [WorksController::class, 'index'])->name('works');
 Route::get('contacts', [ContactsController::class, 'index'])->name('contacts');
+
+Route::get('db', [DBController::class, 'db'])->name('db');
 
 Auth::routes();
 
