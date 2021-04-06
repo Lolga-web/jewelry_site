@@ -18,18 +18,28 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+ 
 </head>
 <body>
     <div id="app">
         <div class="container">
-            
+
             @include('navbar')
 
-            <main class="py-4">
-                @yield('content')
-            </main>
+            <div class="main_container">
+                
+                @include('mainnav')
+
+                <main>
+                    @yield('content')
+                </main>
+            
+            </div>           
         </div>
-        
+  
+        <script src="{{ asset('js/functions.js') }}"></script>
+               
     </div>
 </body>
 </html>

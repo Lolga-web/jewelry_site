@@ -11,14 +11,12 @@
                 <a class="nav-link" href="{{ route('home') }}">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" onclick="showNav()" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Каталог
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Кольца</a>
-                <a class="dropdown-item" href="#">Серьги</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Весь каталог</a>
+                <div class="dropdown-menu catalog_subnav" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Кольца</a>
+                    <a class="dropdown-item" href="#">Серьги</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -29,7 +27,7 @@
             </li> 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
         </form>
     </div>
