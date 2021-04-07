@@ -10,21 +10,40 @@ use App\Models\Product;
 
 class DBController extends Controller
 {
-    public function db(Product $products, Category $categories)
+    public function db()
     {
         set_time_limit(0); 
-        $products = $products->get();
-        // dump($products);
-        foreach($products as $product){
-            $categoryArr = explode(',', $product->category_id);
-            // dump(explode(',', $product->category_id));
-            foreach($categoryArr as $category){
-                DB::table('products_by_categories')->insert([
-                    'product_id' => $product->id,
-                    'category_id' => $category
-                ]);
-            }
+
+        // $products = $products->get();
+        // foreach($products as $product){
+        //     $categoryArr = explode(',', $product->category_id);
+        //     foreach($categoryArr as $category){
+        //         DB::table('products_by_categories')->insert([
+        //             'product_id' => $product->id,
+        //             'category_id' => $category
+        //         ]);
+        //     }
             
-        }
+        // }
+
+        // $productsInCategory = Category::find(7);
+        // $productsInCategory = $productsInCategory->products()->get();
+        // // dd($productsInCategory);
+        // foreach($productsInCategory as $product){
+        //             DB::table('product_by_categories')->insertOrIgnore([
+        //                 'product_id' => $product->id,
+        //                 'category_id' => 2,
+        //             ]);
+        //         }
+
+        // $productsInCategory = Category::find(7);
+        // $productsInCategory = $productsInCategory->products()->get();
+        // // dd($productsInCategory);
+        // foreach($productsInCategory as $product){
+        //             DB::table('subcategory_product')->insertOrIgnore([
+        //                 'product_id' => $product->id,
+        //                 'subcategory_id' => 8,
+        //             ]);
+        //         }
     }
 }

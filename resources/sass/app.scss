@@ -7,6 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'mainnav.scss';
+@import 'navbar.scss';
+@import 'catalog.scss';
+@import 'footer.scss';
+
 
 html, body, #app {
     height: 100%;
@@ -27,80 +32,9 @@ main{
     width: 100%;
     padding: 0 1rem;
 }
-.main_nav {
-    min-width: 200px;
-    &_list {
-        padding: 0;
-        margin: 0;
-        :nth-last-child(n+2) {
-            & .main_nav_item {
-                margin-bottom: 5px;
-            }
-        }
-    }
-    &_link {
-        width: 200px;
-        height: 35px;
-        cursor: pointer;
-    }
-    &_item {
-        width: 200px;
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: black 1px solid;
-        border-radius: 4px;
-    }
-    &_subnav {
-        padding: 0;
-        &_link {
-            width: 200px;
-            height: 35px;
-        }
-        &_item {
-            width: 200px;
-            height: 35px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #e8e8e8;
-            border-radius: 4px;
-        }
-    }
-}
 
-.navbar-phone{
-    color: #fff;
-    &:hover{
-        color: rgba(255, 255, 255, 0.75);
-        text-decoration: none;
-    }
-}
 
-@media (min-width: 992px){
-    .navbar-nav{
-        display: none;
-    }
-}
-@media (max-width: 993px){
-    .main_nav{
-        display: none;
-    }
-    .navbar-nav{
-        display: block;
-    }
-}
 
-.form-inline {
-    margin-left: auto;
-}
 
-.footer{
-    padding: 0.5rem 1rem;
-    flex: 0 0 auto;
-    background-color: #343a40;
-    color: #fff;
-    text-align: center;
-}
+
+

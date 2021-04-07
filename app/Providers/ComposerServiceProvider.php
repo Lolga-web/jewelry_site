@@ -25,10 +25,6 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // view()->composer(
-        //     'app',
-        //     'App\Http\Composers\MenuComposer'
-        // );
         View::composer('layouts.app', MenuComposer::class);
     }
 }

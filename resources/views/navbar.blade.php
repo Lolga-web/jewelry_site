@@ -16,9 +16,15 @@
                     Каталог
                 </a>
                 <div class="dropdown-menu catalog_subnav" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Кольца</a>
-                    <a class="dropdown-item" href="#">Серьги</a>
+                    @foreach($categories as $category)
+                        <a href="{{ route('catalog.category.show', $category->slug) }}" class="dropdown-item">
+                            {{ $category->title }}
+                        </a>
+                    @endforeach
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('individual') }}">Индивидуальный заказ</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('works') }}">Наши работы</a>
