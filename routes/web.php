@@ -28,6 +28,7 @@ Route::name('catalog.')
         Route::get('/category/{slug}', [CatalogController::class, 'show'])->name('category.show');
     });
 
+Route::view('/individual', 'individual')->name('individual');
 Route::get('works', [WorksController::class, 'index'])->name('works');
 Route::get('contacts', [ContactsController::class, 'index'])->name('contacts');
 

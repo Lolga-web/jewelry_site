@@ -10,7 +10,6 @@ class CatalogController extends Controller
 {
     public function show($slug)
     {
-        $categories = Category::all();
         $category = Category::query()
                                 ->where('slug', $slug)
                                 ->first();
@@ -20,7 +19,6 @@ class CatalogController extends Controller
 
         return view('catalog.category')
                 ->with('productsInCategory', $productsInCategory)
-                ->with('category', $category->title)
-                ->with('categories', $categories);
+                ->with('category', $category->title);
     }
 }

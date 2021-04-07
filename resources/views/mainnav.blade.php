@@ -10,6 +10,7 @@
                 </a>
             @endforeach
         </ul>
+        <a href="{{ route('individual') }}" class="main_nav_link"><li class="main_nav_item">Индивидуальный заказ</li></a>
         <a href="{{ route('works') }}" class="main_nav_link"><li class="main_nav_item">Наши работы</li></a>
         <a href="{{ route('contacts') }}" class="main_nav_link"><li class="main_nav_item">Контакты</li></a>
     </ul>

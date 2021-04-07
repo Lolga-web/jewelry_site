@@ -22,11 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Category $categories)
+    public function index()
     {
-        $categories = $categories->all();
-
-        return view('home')
-            ->with('categories', $categories);
+        return view('home');
     }
 }
