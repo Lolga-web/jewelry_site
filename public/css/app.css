@@ -10078,6 +10078,7 @@ h3 {
 .product_item {
   padding: 10px;
   height: 300px;
+  background-color: #fff;
 }
 .product_item_body {
   width: 100%;
@@ -10094,6 +10095,7 @@ h3 {
   max-height: 100%;
 }
 .product_item_img_wrp {
+  width: 100%;
   height: 230px;
   display: flex;
   justify-content: center;
@@ -10152,6 +10154,36 @@ h3 {
   background-color: #343a40;
   color: #fff;
   text-align: center;
+}
+.footer_content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer_title {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.footer_schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer_schedule_body div {
+  display: flex;
+}
+.footer_schedule_day {
+  width: 110px;
+  margin: 0;
+  text-align: left;
+}
+.footer_schedule_time {
+  margin: 0;
+  text-align: left;
+}
+.footer_contacts_body {
+  display: flex;
+  flex-direction: column;
 }
 
 html, body, #app {

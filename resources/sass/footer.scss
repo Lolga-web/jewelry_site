@@ -4,4 +4,42 @@
     background-color: #343a40;
     color: #fff;
     text-align: center;
+    &_content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &_title{
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    &_schedule{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &_body{
+            & div{
+                display: flex;
+            }
+        }
+        &_day{
+            width: 110px;
+            margin: 0;
+            text-align: left;
+        }
+        &_time{
+            margin: 0;
+            text-align: left;
+        }
+    }
+    &_contacts{
+        &_block{
+            
+        }
+        &_body{
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
+

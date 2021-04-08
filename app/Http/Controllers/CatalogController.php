@@ -19,6 +19,6 @@ class CatalogController extends Controller
 
         return view('catalog.category')
                 ->with('productsInCategory', $productsInCategory)
-                ->with('category', $category->title);
+                ->with('category', $category);
     }
 }

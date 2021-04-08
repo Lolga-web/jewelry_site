@@ -40,6 +40,7 @@
             @include('footer')
         </div>                 
     </div>
+
     <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>
