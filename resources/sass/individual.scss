@@ -1,0 +1,14 @@
+.main{
+    &_content{
+        &_img{
+            width: 32%;
+            padding: 0;
+            margin-bottom: 2%;
+            &_block{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

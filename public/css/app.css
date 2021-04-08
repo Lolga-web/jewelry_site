@@ -10148,6 +10148,17 @@ h3 {
   border-color: #343a40;
 }
 
+.main_content_img {
+  width: 32%;
+  padding: 0;
+  margin-bottom: 2%;
+}
+.main_content_img_block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .footer {
   padding: 0.5rem 1rem;
   flex: 0 0 auto;
