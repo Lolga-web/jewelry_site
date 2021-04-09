@@ -10180,6 +10180,26 @@ h3 {
     width: 49%;
   }
 }
+.contacts_schedule_body {
+  display: flex;
+  flex-direction: column;
+}
+.contacts_schedule_body div {
+  display: flex;
+}
+.contacts_schedule_day {
+  width: 110px;
+  margin: 0;
+  text-align: left;
+}
+.contacts_schedule_time {
+  margin: 0;
+  text-align: left;
+}
+.contacts_map {
+  width: 100%;
+}
+
 .footer {
   padding: 0.5rem 1rem;
   flex: 0 0 auto;

@@ -1,0 +1,23 @@
+.contacts{
+    &_schedule{
+        &_body{
+            display: flex;
+            flex-direction: column;
+            & div{
+                display: flex;
+            }
+        }
+        &_day{
+            width: 110px;
+            margin: 0;
+            text-align: left;
+        }
+        &_time{
+            margin: 0;
+            text-align: left;
+        }
+    }
+    &_map{
+        width: 100%;
+    }
+}
