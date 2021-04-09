@@ -21,4 +21,9 @@ class CatalogController extends Controller
                 ->with('productsInCategory', $productsInCategory)
                 ->with('category', $category);
     }
+
+    public function showChainsPage()
+    {       
+        return view('catalog.chains');
+    }
 }

@@ -9,6 +9,9 @@
                     <li class="main_nav_subnav_item">{{ $category->title }}</li>
                 </a>
             @endforeach
+            <a href="{{ route('catalog.chains') }}" class="main_nav_subnav_link">
+                <li class="main_nav_subnav_item">цепи</li>
+            </a>
         </ul>
         <a href="{{ route('individual') }}" class="main_nav_link"><li class="main_nav_item">Индивидуальный заказ</li></a>
         <a href="{{ route('works') }}" class="main_nav_link"><li class="main_nav_item">Наши работы</li></a>

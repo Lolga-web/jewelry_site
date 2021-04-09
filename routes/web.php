@@ -26,6 +26,7 @@ Route::name('catalog.')
     ->prefix('catalog')
     ->group(function () {
         Route::get('/category/{slug}', [CatalogController::class, 'show'])->name('category.show');
+        Route::get('/chains', [CatalogController::class, 'showChainsPage'])->name('chains');
     });
 
 Route::view('/individual', 'individual')->name('individual');

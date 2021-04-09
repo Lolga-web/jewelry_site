@@ -21,6 +21,9 @@
                             {{ $category->title }}
                         </a>
                     @endforeach
+                    <a href="{{ route('catalog.chains') }}" class="dropdown-item">
+                        цепи
+                    </a>
                 </div>
             </li>
             <li class="nav-item">
