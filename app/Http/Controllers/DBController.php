@@ -45,5 +45,16 @@ class DBController extends Controller
         //                 'subcategory_id' => 8,
         //             ]);
         //         }
+
+        // $images = scandir('storage/img/works');
+        // // dd($images);
+
+        // for($i=2; $i<count($images); $i++){
+        //     DB::table('works')->insertOrIgnore([
+        //         'img' => $images[$i],
+        //     ]);
+        // }
+           
+      
     }
 }

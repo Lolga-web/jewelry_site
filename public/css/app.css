@@ -10159,6 +10159,27 @@ h3 {
   flex-wrap: wrap;
 }
 
+@media (max-width: 575px) {
+  .main_content_img {
+    width: 49%;
+  }
+}
+.works_list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.works_img {
+  width: 32%;
+  padding: 0;
+  margin-bottom: 2%;
+}
+
+@media (max-width: 575px) {
+  .works_img {
+    width: 49%;
+  }
+}
 .footer {
   padding: 0.5rem 1rem;
   flex: 0 0 auto;

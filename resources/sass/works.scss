@@ -1,0 +1,18 @@
+.works{
+    &_list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &_img{
+        width: 32%;
+        padding: 0;
+        margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 575px){
+    .works_img{
+        width: 49%;
+    }
+}
