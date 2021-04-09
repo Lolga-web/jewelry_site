@@ -7,6 +7,11 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WorksController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DBController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminFilterController;
+use App\Http\Controllers\Admin\AdminWorksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +33,22 @@ Route::name('catalog.')
         Route::get('/category/{slug}', [CatalogController::class, 'show'])->name('category.show');
         Route::get('/chains', [CatalogController::class, 'showChainsPage'])->name('chains');
     });
+
+Route::name('admin.')
+    ->prefix('admin')
+    ->middleware(['auth', 'is_admin'])
+    ->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+
+        Route::resource('/products', AdminProductController::class);
+        
+        Route::resource('/categories', AdminCategoryController::class);
+
+        Route::resource('/filters', AdminFilterController::class);
+
+        Route::resource('/works', AdminCategoryController::class);
+    });
+
 
 Route::view('/individual', 'individual')->name('individual');
 Route::get('works', [WorksController::class, 'index'])->name('works');

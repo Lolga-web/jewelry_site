@@ -10200,6 +10200,27 @@ h3 {
   width: 100%;
 }
 
+.main_content_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin_menu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.admin_menu_link {
+  color: black;
+  padding: 10px 0;
+}
+.admin_menu_link:hover {
+  text-decoration: none;
+  color: black;
+  opacity: 70%;
+}
+
 .footer {
   padding: 0.5rem 1rem;
   flex: 0 0 auto;
