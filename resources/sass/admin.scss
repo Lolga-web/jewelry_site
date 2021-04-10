@@ -6,17 +6,6 @@
 
 .admin{
     &_menu{
-        display: flex;
-        flex-direction: column;
         padding: 20px 0;
-        &_link{
-            color: black;
-            padding: 10px 0;
-            &:hover{
-                text-decoration: none;
-                color: black;
-                opacity: 70%;
-            }
-        }
     }
 }

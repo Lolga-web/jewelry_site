@@ -28,6 +28,12 @@
 
                 @include('admin.menu')
 
+                <div class="admin_category_list">
+                    @foreach($categories as $category)
+                        <p>{{ $category->title }}</p>
+                    @endforeach
+                </div>
+
             </div>
 
         @else

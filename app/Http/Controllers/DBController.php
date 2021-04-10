@@ -26,13 +26,13 @@ class DBController extends Controller
             
         // }
 
-        // $productsInCategory = Category::find(7);
+        // $productsInCategory = Category::find(8);
         // $productsInCategory = $productsInCategory->products()->get();
         // // dd($productsInCategory);
         // foreach($productsInCategory as $product){
         //             DB::table('product_by_categories')->insertOrIgnore([
         //                 'product_id' => $product->id,
-        //                 'category_id' => 2,
+        //                 'category_id' => 10,
         //             ]);
         //         }
 

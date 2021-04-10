@@ -10077,7 +10077,7 @@ h3 {
 }
 .product_item {
   padding: 10px;
-  height: 300px;
+  min-height: 300px;
   background-color: #fff;
 }
 .product_item_body {
@@ -10207,18 +10207,7 @@ h3 {
 }
 
 .admin_menu {
-  display: flex;
-  flex-direction: column;
   padding: 20px 0;
-}
-.admin_menu_link {
-  color: black;
-  padding: 10px 0;
-}
-.admin_menu_link:hover {
-  text-decoration: none;
-  color: black;
-  opacity: 70%;
 }
 
 .footer {
