@@ -55,6 +55,14 @@ class DBController extends Controller
         //     ]);
         // }
            
-      
+        // $p = DB::table('category_product')->get()->unique('product_id');
+        // foreach($p as $a){
+        //     DB::table('2')->insertOrIgnore([
+        //                         'product_id' => $a->product_id,
+        //                         'category_id' => $a->category_id,
+        //                     ]);
+        // }
+        
+
     }
 }

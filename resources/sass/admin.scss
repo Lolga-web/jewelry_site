@@ -8,4 +8,54 @@
     &_menu{
         padding: 20px 0;
     }
+    &_product{
+        &_item{
+            padding: 10px 0;
+            &_body{
+                padding: 10px;
+                display: flex;
+                border: 1px solid black;
+
+            }
+            &_param{
+                width: 100%;
+            }
+            &_article{
+                margin: 0;
+            }
+            &_img{
+                &_wrp{
+                    max-width: 200px;
+                    max-height: 300px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &_form_group{
+            width: 50%;
+            & label{
+                width: 100px;
+                margin-right: 10px;
+            }
+            & input{
+                width: 100px;
+                display: inline-block;
+            }
+            & select{
+                width: auto;
+                display: inline-block;
+            }
+            & p{
+                width: auto;
+                display: inline-block;
+            }
+        }
+        &_form_img{
+            width: 50%;
+            & label{
+                width: 100px;
+                margin-right: 10px;
+            }
+        }
+    }
 }

@@ -10209,6 +10209,51 @@ h3 {
 .admin_menu {
   padding: 20px 0;
 }
+.admin_product_item {
+  padding: 10px 0;
+}
+.admin_product_item_body {
+  padding: 10px;
+  display: flex;
+  border: 1px solid black;
+}
+.admin_product_item_param {
+  width: 100%;
+}
+.admin_product_item_article {
+  margin: 0;
+}
+.admin_product_item_img_wrp {
+  max-width: 200px;
+  max-height: 300px;
+  margin-right: 10px;
+}
+.admin_product_form_group {
+  width: 50%;
+}
+.admin_product_form_group label {
+  width: 100px;
+  margin-right: 10px;
+}
+.admin_product_form_group input {
+  width: 100px;
+  display: inline-block;
+}
+.admin_product_form_group select {
+  width: auto;
+  display: inline-block;
+}
+.admin_product_form_group p {
+  width: auto;
+  display: inline-block;
+}
+.admin_product_form_img {
+  width: 50%;
+}
+.admin_product_form_img label {
+  width: 100px;
+  margin-right: 10px;
+}
 
 .footer {
   padding: 0.5rem 1rem;
