@@ -7,29 +7,34 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Filter;
+use App\Models\Subcategory;
 use Illuminate\Support\Facades\Storage;
 
 class AdminCatalogController extends Controller
 {
     public function show($slug)
     {
-            $category = Category::query()
-                ->where('slug', $slug)
-                ->first();
+        $category = Category::query()
+            ->where('slug', $slug)
+            ->first();
 
-            if($category){
-                $productsInCategory = Category::find($category->id);
-                $productsInCategory = $productsInCategory->products()->paginate(24);
+        if($category){
+            $productsInCategory = Category::find($category->id);
+            $productsInCategory = $productsInCategory->products()->paginate(24);
 
-                $filters = Filter::all();
-    
-                return view('admin.catalog')
-                    ->with('filters', $filters)
-                    ->with('productsInCategory', $productsInCategory)
-                    ->with('category', $category);
-            } else {
-                return back()->with('error', "Нет такой категории!");
-            }           
+            $subcategories = Subcategory::query()
+                ->where('category_id', $category->id)
+                ->get();
+            $filters = Filter::all();
+
+            return view('admin.catalog')
+                ->with('subcategories', $subcategories)
+                ->with('filters', $filters)
+                ->with('productsInCategory', $productsInCategory)
+                ->with('category', $category);
+        } else {
+            return back()->with('error', "Нет такой категории!");
+        }           
         
     }
 
@@ -37,8 +42,7 @@ class AdminCatalogController extends Controller
     {   
         if(file_exists('storage/img/catalog/' . $catalog->img)){
             unlink('storage/img/catalog/' . $catalog->img);
-        }
-        $catalog->categories()->detach();  
+        } 
         $catalog->delete();
         return back()->with('success', "Позиция удалена из каталога!");
     }
@@ -53,15 +57,8 @@ class AdminCatalogController extends Controller
         }
         $catalog->img = $url;
 
-        $id = $catalog->categories()->allRelatedIds();
-        $catalog->categories()->updateExistingPivot($id, [
-            'category_id' => $request->category_id,
-        ]);
-
-        $catalog->weight = $request->weight;
-
         // $catalog->category_id = $request->has('isPrivate');
-        $catalog->fill($request->except(['category_id']))->save();
+        $catalog->fill($request->all())->save();
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
     }
 }

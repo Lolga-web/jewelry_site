@@ -43,75 +43,104 @@
                                         <label for="admin_product_item_article" class="col-form-label text-md-right">Артикул:</label>
                                         <p class="admin_product_item_article">{{ $product->article }}</p>
                                     </div>
-                                    <form method="POST" action="{{ route('admin.catalog.update', $product) }}" 
+                                    <form class="admin_product_item_form" method="POST" action="{{ route('admin.catalog.update', $product) }}" 
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
-                                        <div class="form-group admin_product_form_group">
-                                            <label for="admin_product_item_category" class="col-form-label text-md-right">Категория:</label>
-                                            @if ($errors->has('category_id'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    @foreach ($errors->get('category_id') as $error)
-                                                        {{ $error }}
-                                                    @endforeach
-                                                </div>
-                                            @endif
-                                            <select name="category_id" id="admin_product_category" class="form-control">
-                                                @forelse($categories as $item)
-                                                    <option @if ($item->id == $category->id) selected
-                                                            @endif value="{{ $item->id }}">{{ $item->title }}</option>
-                                                @empty
-                                                    <option value="0">Нет категорий</option>
-                                                @endforelse
-                                            </select>                                
-                                        </div>
-
-                                        <div class="form-group admin_product_form_group">
-                                            <label for="admin_product_item_weight" class="col-form-label text-md-right">Вес:</label>
-                                            @if($errors->has('weight'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    @foreach($errors->get('weight') as $error)
-                                                        <p>{{ $error }}</p>
-                                                    @endforeach
-                                                </div>
-                                            @endif
-                                            <input id="admin_product_item_weight" type="text" class="form-control" name="weight" 
-                                                value="{{ $product->weight ?? '' }}">
-                                        </div>
-
-                                        <div class="admin_product_item_filters">
-                                            @foreach($filters as $item)
-                                                <div class="form-check">
-                                                    <input 
-                                                        name="{{ $item->title }}" type="checkbox" value="1"
-                                                        id="admin_product_item_{{ $item->title }}" class="form-check-input">
-                                                    <label for="admin_product_item_{{ $item->title }}">{{ $item->title }}</label>
-                                                </div>
-                                                @if ($errors->has('{{ $item->title }}'))
+                                        <div class="form_wrp">
+                                            <div class="form-group admin_product_form_group">
+                                                <label for="admin_product_item_category" class="col-form-label text-md-right">Категория:</label>
+                                                @if ($errors->has('category_id'))
                                                     <div class="alert alert-danger" role="alert">
-                                                        @foreach ($errors->get('{{ $item->title }}') as $error)
+                                                        @foreach ($errors->get('category_id') as $error)
                                                             {{ $error }}
                                                         @endforeach
                                                     </div>
                                                 @endif
-                                            @endforeach
+                                                <select name="category_id" id="admin_product_category" class="form-control">
+                                                    @forelse($categories as $item)
+                                                        <option @if ($item->id == $category->id) selected
+                                                                @endif value="{{ $item->id }}">{{ $item->title }}</option>
+                                                    @empty
+                                                        <option value="0">Нет категорий</option>
+                                                    @endforelse
+                                                </select>                                
+                                            </div>
+
+                                            @if(!$subcategories->isEmpty())
+                                                <div class="form-group admin_product_form_group">
+                                                    <label for="admin_product_item_category" class="col-form-label text-md-right">Подкатегория:</label>
+                                                    <select name="subcategory_id" id="admin_product_category" class="form-control">
+                                                        @foreach($subcategories as $item)
+                                                            <option @if ($item->id == $product->subcategory_id) selected
+                                                                @endif value="{{ $item->id }}">{{ $item->title }}</option>
+                                                        @endforeach
+                                                    </select>                                
+                                                </div>
+                                            @endif
+
+                                            <div class="form-group admin_product_form_group">
+                                                <label for="admin_product_item_weight" class="col-form-label text-md-right">Вес:</label>
+                                                @if($errors->has('weight'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @foreach($errors->get('weight') as $error)
+                                                            <p>{{ $error }}</p>
+                                                        @endforeach
+                                                    </div>
+                                                @endif
+                                                <input id="admin_product_item_weight" type="text" class="form-control" name="weight" 
+                                                    value="{{ $product->weight ?? '' }}">
+                                            </div>
+
+                                            <div class="form-group admin_product_form_group">
+                                                <label for="admin_product_item_weight" class="col-form-label text-md-right">Приоритет:</label>
+                                                @if($errors->has('priority'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @foreach($errors->get('priority') as $error)
+                                                            <p>{{ $error }}</p>
+                                                        @endforeach
+                                                    </div>
+                                                @endif
+                                                <input id="admin_product_item_weight" type="number" class="form-control" name="priority" 
+                                                    value="{{ $product->priority ?? '' }}">
+                                            </div>
+                                            
+                                            <div class="form-group admin_product_form_img">
+                                                <label for="admin_product_item_img" class="col-form-label text-md-right">Изображение:</label>
+                                                <input id="admin_product_item_img" type="file" name="img">
+                                            </div>
+                                            @if ($errors->has('img'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    @foreach ($errors->get('img') as $error)
+                                                        {{ $error }}
+                                                    @endforeach
+                                                </div>
+                                            @endif
                                         </div>
 
-                                        <div class="form-group admin_product_form_img">
-                                            <label for="admin_product_item_img" class="col-form-label text-md-right">Изображение:</label>
-                                            <input id="admin_product_item_img" type="file" name="img">
-                                        </div>
-                                        @if ($errors->has('img'))
-                                            <div class="alert alert-danger" role="alert">
-                                                @foreach ($errors->get('img') as $error)
-                                                    {{ $error }}
+                                        <div class="form_wrp">
+                                            <div class="form-group admin_product_item_filters">
+                                                @foreach($filters as $item)
+                                                    <div class="form-check">
+                                                        <input 
+                                                            name="{{ $item->title }}" type="checkbox" value="1"
+                                                            id="admin_product_item_{{ $item->title }}" class="form-check-input">
+                                                        <label for="admin_product_item_{{ $item->title }}">{{ $item->title }}</label>
+                                                    </div>
+                                                    @if ($errors->has('{{ $item->title }}'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            @foreach ($errors->get('{{ $item->title }}') as $error)
+                                                                {{ $error }}
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
-                                        @endif
 
-                                        <button type="submit" class="btn btn-primary">
-                                            Изменить
-                                        </button> 
+                                            <button type="submit" class="btn btn-primary">
+                                                Изменить
+                                            </button> 
+                                        </div>
                                     </form>
 
                                 </div>

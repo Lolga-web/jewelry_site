@@ -10217,6 +10217,10 @@ h3 {
   display: flex;
   border: 1px solid black;
 }
+.admin_product_item_form {
+  display: flex;
+  flex-wrap: wrap;
+}
 .admin_product_item_param {
   width: 100%;
 }
@@ -10227,9 +10231,6 @@ h3 {
   max-width: 200px;
   max-height: 300px;
   margin-right: 10px;
-}
-.admin_product_form_group {
-  width: 50%;
 }
 .admin_product_form_group label {
   width: 100px;
@@ -10253,6 +10254,10 @@ h3 {
 .admin_product_form_img label {
   width: 100px;
   margin-right: 10px;
+}
+
+.form_wrp {
+  width: 50%;
 }
 
 .footer {
