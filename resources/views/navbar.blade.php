@@ -18,8 +18,15 @@
                 <div class="dropdown-menu catalog_subnav" aria-labelledby="navbarDropdown">
                     @foreach($categories as $category)
                         <a href="{{ route('catalog.category.show', $category->slug) }}" class="dropdown-item">
-                            {{ $category->title }}
+                            {{ $category->title }} 
                         </a>
+                        @foreach($subcategories as $subcategory)
+                            @if($category->id == $subcategory->category_id)
+                                <a href="{{ route('catalog.subcategory.show', $subcategory->slug) }}" class="dropdown-item">
+                                    {{ $subcategory->title }}
+                                </a>
+                            @endif
+                        @endforeach
                     @endforeach
                     <a href="{{ route('catalog.chains') }}" class="dropdown-item">
                         цепи

@@ -19,13 +19,17 @@ class AdminCatalogController extends Controller
             ->first();
 
         if($category){
-            $productsInCategory = Category::find($category->id);
-            $productsInCategory = $productsInCategory->products()->paginate(24);
+            // $productsInCategory = Category::find($category->id);
+            // $productsInCategory = $productsInCategory->products()->paginate(24);
 
             $subcategories = Subcategory::query()
                 ->where('category_id', $category->id)
                 ->get();
             $filters = Filter::all();
+
+            $productsInCategory = Product::with('filters')
+                ->where('category_id', $category->id)
+                ->paginate(12);
 
             return view('admin.catalog')
                 ->with('subcategories', $subcategories)
@@ -42,7 +46,8 @@ class AdminCatalogController extends Controller
     {   
         if(file_exists('storage/img/catalog/' . $catalog->img)){
             unlink('storage/img/catalog/' . $catalog->img);
-        } 
+        }
+        $catalog->filters()->detach();  
         $catalog->delete();
         return back()->with('success', "Позиция удалена из каталога!");
     }
@@ -57,7 +62,16 @@ class AdminCatalogController extends Controller
         }
         $catalog->img = $url;
 
-        // $catalog->category_id = $request->has('isPrivate');
+        $catalog->filters()->detach();
+        $filters = Filter::all();
+        foreach($filters as $filter){
+            if($request->has($filter->slug)){
+                $catalog->filters()->attach([
+                        'filter_id' => $filter->id,
+                    ]);
+            }
+        }
+
         $catalog->fill($request->all())->save();
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
     }

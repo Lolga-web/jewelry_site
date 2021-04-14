@@ -32,4 +32,9 @@ class Product extends Model
         return $this->belongsTo(Subcategory::class);
     }
 
+    public function filters()
+    {
+        return $this->belongsToMany(Filter::class);
+    }
+
 }

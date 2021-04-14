@@ -20,6 +20,7 @@
             &_form{
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: space-between;
             }
             &_param{
                 width: 100%;
@@ -34,9 +35,11 @@
                     margin-right: 10px;
                 }
             }
+            &_filters{
+                margin: 0;
+            }
         }
         &_form_group{
-            // width: 50%;
             & label{
                 width: 100px;
                 margin-right: 10px;
@@ -64,5 +67,5 @@
     }
 }
 .form_wrp{
-    width: 50%;
+    width: 48%;
 }

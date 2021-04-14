@@ -10040,7 +10040,19 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   background-color: #e8e8e8;
+  border-radius: 4px;
+}
+.main_nav_subcategory_item {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #f3f0f0;
   border-radius: 4px;
 }
 
@@ -10220,6 +10232,7 @@ h3 {
 .admin_product_item_form {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .admin_product_item_param {
   width: 100%;
@@ -10231,6 +10244,9 @@ h3 {
   max-width: 200px;
   max-height: 300px;
   margin-right: 10px;
+}
+.admin_product_item_filters {
+  margin: 0;
 }
 .admin_product_form_group label {
   width: 100px;
@@ -10257,7 +10273,7 @@ h3 {
 }
 
 .form_wrp {
-  width: 50%;
+  width: 48%;
 }
 
 .footer {

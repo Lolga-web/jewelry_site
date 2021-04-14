@@ -8,6 +8,13 @@
                 <a href="{{ route('catalog.category.show', $category->slug) }}" class="main_nav_subnav_link">
                     <li class="main_nav_subnav_item">{{ $category->title }}</li>
                 </a>
+                @foreach($subcategories as $subcategory)
+                    @if($category->id == $subcategory->category_id)
+                        <a href="{{ route('catalog.subcategory.show', $subcategory->slug) }}" class="main_nav_subnav_link">
+                            <li class="main_nav_subcategory_item">{{ $subcategory->title }}</li>
+                        </a>
+                    @endif
+                @endforeach
             @endforeach
             <a href="{{ route('catalog.chains') }}" class="main_nav_subnav_link">
                 <li class="main_nav_subnav_item">цепи</li>

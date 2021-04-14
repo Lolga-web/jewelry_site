@@ -117,23 +117,23 @@
                                                 </div>
                                             @endif
                                         </div>
-
+                                        
                                         <div class="form_wrp">
                                             <div class="form-group admin_product_item_filters">
                                                 @foreach($filters as $item)
                                                     <div class="form-check">
+                                                   
                                                         <input 
-                                                            name="{{ $item->title }}" type="checkbox" value="1"
-                                                            id="admin_product_item_{{ $item->title }}" class="form-check-input">
-                                                        <label for="admin_product_item_{{ $item->title }}">{{ $item->title }}</label>
+                                                            @if(!$product->filters->isEmpty())
+                                                                @foreach($product->filters as $filter)
+                                                                    @if ($filter->id == $item->id) checked @endif
+                                                                @endforeach
+                                                            @endif
+                                                            name="{{ $item->slug }}" type="checkbox" value="1"
+                                                            id="admin_product_item_{{ $item->slug }}" class="form-check-input">
+                                                        <label for="admin_product_item_{{ $item->slug }}">{{ $item->title }}</label>
                                                     </div>
-                                                    @if ($errors->has('{{ $item->title }}'))
-                                                        <div class="alert alert-danger" role="alert">
-                                                            @foreach ($errors->get('{{ $item->title }}') as $error)
-                                                                {{ $error }}
-                                                            @endforeach
-                                                        </div>
-                                                    @endif
+
                                                 @endforeach
                                             </div>
 
