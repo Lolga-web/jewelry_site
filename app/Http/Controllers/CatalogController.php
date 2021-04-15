@@ -8,42 +8,35 @@ use App\Models\Subcategory;
 use App\Models\Product;
 use App\Models\Filter;
 
+
 class CatalogController extends Controller
 {
-    public function showCategory($slug)
+    public function show(Request $request, $slug, $subslug = null)
     {
-        $category = Category::query()
-                                ->where('slug', $slug)
-                                ->first();
+        $builder = Product::join('filters', 'products.id', '=', 'filters.product_id');
+        $category = Category::query()->where('slug', $slug)->first();
+        $subcategory = Subcategory::query()->where('slug', $subslug)->first();
 
-        // $productsInCategory = Category::find($category->id);
-        // $productsInCategory = $productsInCategory->products()->paginate(24);
-        
+        if($subslug){
+            $builder->where('subcategory_id', $subcategory->id);
+        } else {
+            $builder->where('category_id', $category->id);
+        }
 
-        $productsInCategory = Product::with('filters')
-                ->where('category_id', $category->id)
-                ->paginate(24);
+        if ($request->has('stones')) { 
+            $builder->where('stones', 1);
+        }
+        if ($request->has('nostones')) { 
+            $builder->where('nostones', 1);
+        }
+        if ($request->has('pearls')) { 
+            $builder->where('pearls', 1);
+        }
+
+        $productsInCategory = $builder->paginate(24);
 
         return view('catalog.category')
-                ->with('productsInCategory', $productsInCategory)
-                ->with('subcategory', false)
-                ->with('category', $category);
-    }
-
-    public function showSubcategory($slug)
-    {
-        $subcategory = Subcategory::query()
-                                ->where('slug', $slug)
-                                ->first();
-
-        $category = Category::query()
-                                ->where('id', $subcategory->category_id)
-                                ->first();
-
-        $productsInCategory = Subcategory::find($subcategory->id);
-        $productsInCategory = $productsInCategory->products()->paginate(24);
-
-        return view('catalog.category')
+                ->with('addFilters', $request->all())
                 ->with('productsInCategory', $productsInCategory)
                 ->with('subcategory', $subcategory)
                 ->with('category', $category);

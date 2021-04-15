@@ -10,7 +10,8 @@
                 </a>
                 @foreach($subcategories as $subcategory)
                     @if($category->id == $subcategory->category_id)
-                        <a href="{{ route('catalog.subcategory.show', $subcategory->slug) }}" class="main_nav_subnav_link">
+                        <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
+                            class="main_nav_subnav_link">
                             <li class="main_nav_subcategory_item">{{ $subcategory->title }}</li>
                         </a>
                     @endif

@@ -74,5 +74,15 @@ class DBController extends Controller
         //     // dd($a);
         //     DB::table('products')->where('id', $a->product_id)->update(['subcategory_id' => $a->subcategory_id]);
         // }
+
+        // $p = DB::table('products')->get();
+        // foreach($p as $a){
+        //     // dd($a);
+        //     DB::table('filters')->insert([
+        //         'product_id' => $a->id,
+        //         'stones' => 0,
+        //         'pearls' => 0
+        //     ]);
+        // }
     }
 }

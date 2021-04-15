@@ -43,7 +43,7 @@
                                         <label for="admin_product_item_article" class="col-form-label text-md-right">Артикул:</label>
                                         <p class="admin_product_item_article">{{ $product->article }}</p>
                                     </div>
-                                    <form class="admin_product_item_form" method="POST" action="{{ route('admin.catalog.update', $product) }}" 
+                                    <form class="admin_product_item_form" method="POST" action="{{ route('admin.catalog.update', $product->product_id) }}" 
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
@@ -75,6 +75,8 @@
                                                             <option @if ($item->id == $product->subcategory_id) selected
                                                                 @endif value="{{ $item->id }}">{{ $item->title }}</option>
                                                         @endforeach
+                                                        <option @if ($product->subcategory_id == 0) selected
+                                                                @endif value="0">-</option>
                                                     </select>                                
                                                 </div>
                                             @endif
@@ -120,21 +122,24 @@
                                         
                                         <div class="form_wrp">
                                             <div class="form-group admin_product_item_filters">
-                                                @foreach($filters as $item)
-                                                    <div class="form-check">
-                                                   
-                                                        <input 
-                                                            @if(!$product->filters->isEmpty())
-                                                                @foreach($product->filters as $filter)
-                                                                    @if ($filter->id == $item->id) checked @endif
-                                                                @endforeach
-                                                            @endif
-                                                            name="{{ $item->slug }}" type="checkbox" value="1"
-                                                            id="admin_product_item_{{ $item->slug }}" class="form-check-input">
-                                                        <label for="admin_product_item_{{ $item->slug }}">{{ $item->title }}</label>
-                                                    </div>
-
-                                                @endforeach
+                                                <div class="form-check">
+                                                    <input name="stones" type="checkbox" value="1"
+                                                        @if($product->stones == 1) checked @endif
+                                                        id="admin_product_item_withoutstone" class="form-check-input">
+                                                    <label for="admin_product_item_withoutstone">с камнями</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="nostones" type="checkbox" value="1"
+                                                        @if($product->nostones == 1) checked @endif
+                                                        id="admin_product_item_withoutstone" class="form-check-input">
+                                                    <label for="admin_product_item_withoutstone">без камней</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="pearls" type="checkbox" value="1"
+                                                        @if($product->pearls == 1) checked @endif
+                                                        id="admin_product_item_withoutstone" class="form-check-input">
+                                                    <label for="admin_product_item_withoutstone">с жемчугом</label>
+                                                </div>
                                             </div>
 
                                             <button type="submit" class="btn btn-primary">
@@ -144,7 +149,7 @@
                                     </form>
 
                                 </div>
-                                <form class="admin_admin_catalog_btns" action="{{ route('admin.catalog.destroy', $product) }}" method="post">
+                                <form class="admin_admin_catalog_btns" action="{{ route('admin.catalog.destroy', $product->product_id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" class="btn btn-danger" value="Удалить">

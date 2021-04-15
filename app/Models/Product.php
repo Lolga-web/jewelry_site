@@ -34,7 +34,7 @@ class Product extends Model
 
     public function filters()
     {
-        return $this->belongsToMany(Filter::class);
+        return $this->hasOne(Filter::class);
     }
 
 }

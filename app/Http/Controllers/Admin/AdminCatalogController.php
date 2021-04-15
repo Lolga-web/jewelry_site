@@ -13,41 +13,29 @@ use Illuminate\Support\Facades\Storage;
 class AdminCatalogController extends Controller
 {
     public function show($slug)
-    {
-        $category = Category::query()
-            ->where('slug', $slug)
-            ->first();
-
+    {   
+        $category = Category::query()->where('slug', $slug)->first();
         if($category){
-            // $productsInCategory = Category::find($category->id);
-            // $productsInCategory = $productsInCategory->products()->paginate(24);
-
-            $subcategories = Subcategory::query()
-                ->where('category_id', $category->id)
-                ->get();
-            $filters = Filter::all();
-
-            $productsInCategory = Product::with('filters')
-                ->where('category_id', $category->id)
-                ->paginate(12);
-
+            $productsInCategory = Product::join('filters', 'products.id', '=', 'filters.product_id')
+                                ->where('category_id', $category->id)
+                                ->paginate(24);
             return view('admin.catalog')
-                ->with('subcategories', $subcategories)
-                ->with('filters', $filters)
-                ->with('productsInCategory', $productsInCategory)
-                ->with('category', $category);
+                    ->with('productsInCategory', $productsInCategory)
+                    ->with('category', $category);  
         } else {
             return back()->with('error', "Нет такой категории!");
-        }           
-        
+        }   
     }
 
     public function destroy(Product $catalog) 
     {   
+        $filter = Filter::where('product_id', $catalog->id);
+        $filter->delete();
+
         if(file_exists('storage/img/catalog/' . $catalog->img)){
             unlink('storage/img/catalog/' . $catalog->img);
         }
-        $catalog->filters()->detach();  
+
         $catalog->delete();
         return back()->with('success', "Позиция удалена из каталога!");
     }
@@ -61,18 +49,14 @@ class AdminCatalogController extends Controller
             Storage::putFileAs('public/img/catalog/', $request->file('img'), $url);
         }
         $catalog->img = $url;
-
-        $catalog->filters()->detach();
-        $filters = Filter::all();
-        foreach($filters as $filter){
-            if($request->has($filter->slug)){
-                $catalog->filters()->attach([
-                        'filter_id' => $filter->id,
-                    ]);
-            }
-        }
-
         $catalog->fill($request->all())->save();
+
+        $filters = Filter::query()->where('product_id', $catalog->id)->first();
+        $filters->stones = $request->has('stones');
+        $filters->nostones = $request->has('nostones');
+        $filters->pearls = $request->has('pearls');
+        $filters->save();
+
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
     }
 }

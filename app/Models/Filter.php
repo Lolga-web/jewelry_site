@@ -11,10 +11,15 @@ class Filter extends Model
 
     protected $table = 'filters';
 
-    protected $fillable = ['title', 'slug'];
+    protected $fillable = [
+        'product_id', 
+        'stones',
+        'nostones',
+        'pearls'
+    ];
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->hasOne(Product::class);
     }
 }

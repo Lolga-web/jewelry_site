@@ -47,7 +47,7 @@
                             </button>
                         </div>
                     @endif
-                    
+
                     @yield('content')
                 </main>
             

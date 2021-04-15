@@ -3,21 +3,16 @@
 @section('content')
 
     <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">Каталог</li>
-        <li class="breadcrumb-item" @if(!$subcategory) aria-current="page" @endif>{{ $category->title }}</li>
-        @if($subcategory)
-            <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->title }}</li>
-        @endif
-    </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Каталог</li>
+            <li class="breadcrumb-item" @if(!$subcategory) aria-current="page" @endif>{{ $category->title }}</li>
+            @if($subcategory)
+                <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->title }}</li>
+            @endif
+        </ol>
     </nav>
 
-    <div class="product_filters">
-        <p class="product_filters_title">Фильтры:</p>
-        <form class="product_filters_list">
-
-        </form>
-    </div>
+    @include('catalog.filters')
 
     <div class="product_list">
         @forelse($productsInCategory as $product)
