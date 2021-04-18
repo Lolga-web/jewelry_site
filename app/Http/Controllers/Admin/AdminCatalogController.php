@@ -16,11 +16,13 @@ class AdminCatalogController extends Controller
     {   
         $category = Category::query()->where('slug', $slug)->first();
         if($category){
+            $subByCategory = Subcategory::query()->where('category_id', $category->id)->get();
             $productsInCategory = Product::join('filters', 'products.id', '=', 'filters.product_id')
                                 ->where('category_id', $category->id)
-                                ->paginate(24);
+                                ->paginate(12);
             return view('admin.catalog')
                     ->with('productsInCategory', $productsInCategory)
+                    ->with('subByCategory', $subByCategory)
                     ->with('category', $category);  
         } else {
             return back()->with('error', "Нет такой категории!");
@@ -41,7 +43,7 @@ class AdminCatalogController extends Controller
     }
 
     public function update(Request $request, Product $catalog) 
-    {      
+    {   
         $url = $catalog->img;
         if ($request->file('img')) {
             unlink('storage/img/catalog/' . $catalog->img);
@@ -55,6 +57,13 @@ class AdminCatalogController extends Controller
         $filters->stones = $request->has('stones');
         $filters->nostones = $request->has('nostones');
         $filters->pearls = $request->has('pearls');
+        $filters->male = $request->has('male');
+        $filters->female = $request->has('female');
+        $filters->newborn = $request->has('newborn');
+        $filters->zodiac = $request->has('zodiac');
+        $filters->love = $request->has('love');
+        $filters->muslim = $request->has('muslim');
+        $filters->enamel = $request->has('enamel');
         $filters->save();
 
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');

@@ -1,7 +1,7 @@
 
 <div class="product_filters">
     <p class="product_filters_title">Фильтры:</p>
-    <form class="product_filters_list" method="GET" action="{{ route('catalog.category.show', $category->slug) }}">
+    <form class="product_filters_list" method="GET" action="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subslug]) }}">
         <div class="form-group">
 
             <div class="form-check">
@@ -29,9 +29,7 @@
                 <label for="admin_product_item_withoutstone">с жемчугом</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">
-            Применить
-        </button> 
+        <input type="submit" class="btn btn-primary" value="Применить">
     </form>
-    <a href="{{ route('catalog.category.show', $category->slug) }}">Сбросить фильтры</a>
+    <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subslug]) }}">Сбросить фильтры</a>
 </div>

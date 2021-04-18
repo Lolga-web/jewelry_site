@@ -39,6 +39,7 @@ class CatalogController extends Controller
                 ->with('addFilters', $request->all())
                 ->with('productsInCategory', $productsInCategory)
                 ->with('subcategory', $subcategory)
+                ->with('subslug', $subslug)
                 ->with('category', $category);
     }
 

@@ -15,7 +15,14 @@ class Filter extends Model
         'product_id', 
         'stones',
         'nostones',
-        'pearls'
+        'pearls',
+        'male',
+        'female',
+        'newborn',
+        'zodiac',
+        'love',
+        'muslim',
+        'enamel'
     ];
 
     public function products()

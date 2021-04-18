@@ -58,20 +58,20 @@
                                                     </div>
                                                 @endif
                                                 <select name="category_id" id="admin_product_category" class="form-control">
-                                                    @forelse($categories as $item)
+                                                    @foreach($categories as $item)
                                                         <option @if ($item->id == $category->id) selected
                                                                 @endif value="{{ $item->id }}">{{ $item->title }}</option>
-                                                    @empty
-                                                        <option value="0">Нет категорий</option>
-                                                    @endforelse
+                                                    @endforeach
+                                                    <option @if ($product->category_id == 0) selected
+                                                                @endif value="0">-</option>
                                                 </select>                                
                                             </div>
 
-                                            @if(!$subcategories->isEmpty())
+                                            @if(!$subByCategory->isEmpty())
                                                 <div class="form-group admin_product_form_group">
                                                     <label for="admin_product_item_category" class="col-form-label text-md-right">Подкатегория:</label>
                                                     <select name="subcategory_id" id="admin_product_category" class="form-control">
-                                                        @foreach($subcategories as $item)
+                                                        @foreach($subByCategory as $item)
                                                             <option @if ($item->id == $product->subcategory_id) selected
                                                                 @endif value="{{ $item->id }}">{{ $item->title }}</option>
                                                         @endforeach
@@ -125,20 +125,62 @@
                                                 <div class="form-check">
                                                     <input name="stones" type="checkbox" value="1"
                                                         @if($product->stones == 1) checked @endif
-                                                        id="admin_product_item_withoutstone" class="form-check-input">
-                                                    <label for="admin_product_item_withoutstone">с камнями</label>
+                                                        id="admin_product_item_stones" class="form-check-input">
+                                                    <label for="admin_product_item_stones">с камнями</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input name="nostones" type="checkbox" value="1"
                                                         @if($product->nostones == 1) checked @endif
-                                                        id="admin_product_item_withoutstone" class="form-check-input">
-                                                    <label for="admin_product_item_withoutstone">без камней</label>
+                                                        id="admin_product_item_nostones" class="form-check-input">
+                                                    <label for="admin_product_item_nostones">без камней</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input name="pearls" type="checkbox" value="1"
                                                         @if($product->pearls == 1) checked @endif
-                                                        id="admin_product_item_withoutstone" class="form-check-input">
-                                                    <label for="admin_product_item_withoutstone">с жемчугом</label>
+                                                        id="admin_product_item_pearls" class="form-check-input">
+                                                    <label for="admin_product_item_pearls">с жемчугом</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="male" type="checkbox" value="1"
+                                                        @if($product->male == 1) checked @endif
+                                                        id="admin_product_item_male" class="form-check-input">
+                                                    <label for="admin_product_item_male">мужские</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="female" type="checkbox" value="1"
+                                                        @if($product->female == 1) checked @endif
+                                                        id="admin_product_item_female" class="form-check-input">
+                                                    <label for="admin_product_item_female">женские</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="newborn" type="checkbox" value="1"
+                                                        @if($product->newborn == 1) checked @endif
+                                                        id="admin_product_item_newborn" class="form-check-input">
+                                                    <label for="admin_product_item_newborn">рождение</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="zodiac" type="checkbox" value="1"
+                                                        @if($product->zodiac == 1) checked @endif
+                                                        id="admin_product_item_zodiac" class="form-check-input">
+                                                    <label for="admin_product_item_zodiac">знаки зодиака</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="love" type="checkbox" value="1"
+                                                        @if($product->love == 1) checked @endif
+                                                        id="admin_product_item_love" class="form-check-input">
+                                                    <label for="admin_product_item_love">любовь</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="muslim" type="checkbox" value="1"
+                                                        @if($product->muslim == 1) checked @endif
+                                                        id="admin_product_item_muslim" class="form-check-input">
+                                                    <label for="admin_product_item_muslim">мусульманские</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="enamel" type="checkbox" value="1"
+                                                        @if($product->enamel == 1) checked @endif
+                                                        id="admin_product_item_enamel" class="form-check-input">
+                                                    <label for="admin_product_item_enamel">эмаль</label>
                                                 </div>
                                             </div>
 
@@ -161,8 +203,8 @@
                         <p>В данной категории ничего не найдено</p>
                     @endforelse
 
-                    <div class="product_pagination">{{ $productsInCategory->links() }}</div>
-                    <div class="mobile_product_pagination">{{ $productsInCategory->onEachSide(0)->links() }}</div>
+                    <div class="product_pagination">{{ $productsInCategory->appends(request()->input())->links() }}</div>
+                    <div class="mobile_product_pagination">{{ $productsInCategory->appends(request()->input())->onEachSide(0)->links() }}</div>
                         
                 </div>
 
