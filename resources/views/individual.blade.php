@@ -15,18 +15,42 @@
         </p>
 
         <div class="main_content_img_block">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/01.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/02.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/03.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/04.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/05.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/06.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/07.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/08.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/09.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/10.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/11.jpg') }}" alt="individual-img">
-            <img class="main_content_img" src="{{ asset('storage/img/individual/12.jpg') }}" alt="individual-img">
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/01.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/02.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/03.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/04.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/05.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/06.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/07.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/08.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/09.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/10.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/11.jpg') }}" alt="individual-img">
+            </div>
+            <div class="works_item">
+                <img class="main_content_img" src="{{ asset('storage/img/individual/12.jpg') }}" alt="individual-img">
+            </div>    
         </div>
     </div>
 

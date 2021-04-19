@@ -10161,9 +10161,8 @@ h3 {
 }
 
 .main_content_img {
-  width: 32%;
+  width: 100%;
   padding: 0;
-  margin-bottom: 2%;
 }
 .main_content_img_block {
   display: flex;
@@ -10181,10 +10180,15 @@ h3 {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.works_img {
+.works_item {
   width: 32%;
   padding: 0;
   margin-bottom: 2%;
+  background-color: #dddddd;
+}
+.works_img {
+  width: 100%;
+  padding: 0;
 }
 
 @media (max-width: 575px) {
@@ -10210,6 +10214,15 @@ h3 {
 }
 .contacts_map {
   width: 100%;
+  height: 400px;
+  position: relative;
+}
+.contacts_map_img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .main_content_top {
@@ -10270,6 +10283,51 @@ h3 {
 .admin_product_form_img label {
   width: 100px;
   margin-right: 10px;
+}
+.admin_works_list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.admin_works_list::after {
+  content: "";
+  width: 32%;
+}
+.admin_works_item {
+  width: 32%;
+  padding: 0;
+  margin-bottom: 3%;
+  position: relative;
+}
+.admin_works_item_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.admin_works_item_priority {
+  width: 60px;
+  margin-left: 10px;
+}
+.admin_works_img {
+  width: 100%;
+}
+.admin_works_delete_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.admin_works_form_group {
+  display: flex;
+  margin: 0;
+}
+.admin_works_add_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .form_wrp {

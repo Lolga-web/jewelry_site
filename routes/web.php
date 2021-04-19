@@ -30,7 +30,7 @@ Route::get('index', [HomeController::class, 'index']);
 Route::name('catalog.')
     ->prefix('catalog')
     ->group(function () {
-        Route::get('/category/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');
+        Route::get('/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');
         Route::get('/chains', [CatalogController::class, 'showChainsPage'])->name('chains');
     });
 

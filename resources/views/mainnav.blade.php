@@ -4,19 +4,23 @@
         <a href="{{ route('home') }}" class="main_nav_link"><li class="main_nav_item">Главная</li></a>
         <a class="main_nav_link" onclick="showNav()"><li class="main_nav_item">Каталог</li></a>
         <ul class="main_nav_subnav catalog_subnav" style="display:none;">
-            @foreach($categories as $category)
-                <a href="{{ route('catalog.category.show', $category->slug) }}" class="main_nav_subnav_link">
-                    <li class="main_nav_subnav_item">{{ $category->title }}</li>
-                </a>
-                @foreach($subcategories as $subcategory)
-                    @if($category->id == $subcategory->category_id)
-                        <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
-                            class="main_nav_subnav_link">
-                            <li class="main_nav_subcategory_item">{{ $subcategory->title }}</li>
-                        </a>
+            @if($categories)
+                @foreach($categories as $category)
+                    <a href="{{ route('catalog.category.show', $category->slug) }}" class="main_nav_subnav_link">
+                        <li class="main_nav_subnav_item">{{ $category->title }}</li>
+                    </a>
+                    @if($subcategories)
+                        @foreach($subcategories as $subcategory)
+                            @if($category->id == $subcategory->category_id)
+                                <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
+                                    class="main_nav_subnav_link">
+                                    <li class="main_nav_subcategory_item">{{ $subcategory->title }}</li>
+                                </a>
+                            @endif
+                        @endforeach
                     @endif
                 @endforeach
-            @endforeach
+            @endif
             <a href="{{ route('catalog.chains') }}" class="main_nav_subnav_link">
                 <li class="main_nav_subnav_item">цепи</li>
             </a>

@@ -9,9 +9,9 @@
         <div class="works_list">
             @if($images)
                 @foreach($images as $image)
-
-                    <img class="works_img" src="{{ asset('storage/img/works/'. $image->img) }}">
-                    
+                    <div class="works_item">
+                        <img class="works_img" src="{{ asset('storage/img/works/'. $image->img) }}">
+                    </div>
                 @endforeach
             @else
                 <p>Нет фото</p>

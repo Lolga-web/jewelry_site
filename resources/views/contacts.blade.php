@@ -53,6 +53,7 @@
         </div>
 
         <div class="contacts_map">
+            <img class="contacts_map_img" src="{{ asset('storage/img/main/map.png') }}" alt="map-img">
             <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A236d502619b4939568f3182c3887f493b264bd1f3526c38a18402ea9c01360af&amp;max-width=1200&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
 

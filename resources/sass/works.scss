@@ -4,10 +4,15 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    &_img{
+    &_item{
         width: 32%;
         padding: 0;
         margin-bottom: 2%;
+        background-color: rgb(221, 221, 221);
+    }
+    &_img{
+        width: 100%;
+        padding: 0;
     }
 }
 

@@ -16,19 +16,23 @@
                     Каталог
                 </a>
                 <div class="dropdown-menu catalog_subnav" aria-labelledby="navbarDropdown">
-                    @foreach($categories as $category)
-                        <a href="{{ route('catalog.category.show', $category->slug) }}" class="dropdown-item">
-                            {{ $category->title }} 
-                        </a>
-                        @foreach($subcategories as $subcategory)
-                            @if($category->id == $subcategory->category_id)
-                                <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
-                                    class="dropdown-item">
-                                    {{ $subcategory->title }}
-                                </a>
+                    @if($categories)
+                        @foreach($categories as $category)
+                            <a href="{{ route('catalog.category.show', $category->slug) }}" class="dropdown-item">
+                                {{ $category->title }} 
+                            </a>
+                            @if($subcategories)
+                                @foreach($subcategories as $subcategory)
+                                    @if($category->id == $subcategory->category_id)
+                                        <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
+                                            class="dropdown-item">
+                                            {{ $subcategory->title }}
+                                        </a>
+                                    @endif
+                                @endforeach
                             @endif
                         @endforeach
-                    @endforeach
+                    @endif
                     <a href="{{ route('catalog.chains') }}" class="dropdown-item">
                         цепи
                     </a>

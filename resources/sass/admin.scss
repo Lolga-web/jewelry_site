@@ -65,6 +65,53 @@
             }
         }
     }
+    &_works{
+        &_list{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            &::after{
+                content: "";
+                width: 32%;
+            }
+        }
+        &_item{
+            width: 32%;
+            padding: 0;
+            margin-bottom: 3%;
+            position: relative;
+            &_form{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px 0;
+            }
+            &_priority{
+                width: 60px;
+                margin-left: 10px;
+            }
+        }
+        &_img{
+            width: 100%;
+        }
+        &_delete_btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        &_form_group{
+            display: flex;
+            margin: 0;
+        }
+        &_add_form{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+    }
 }
 .form_wrp{
     width: 48%;
