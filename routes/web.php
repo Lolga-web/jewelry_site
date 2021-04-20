@@ -41,6 +41,7 @@ Route::name('admin.')
         Route::get('/', [AdminController::class, 'index'])->name('index');
 
         Route::resource('/catalog', AdminCatalogController::class);
+        Route::get('/search', [AdminCatalogController::class, 'search'])->name('search');
         
         Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'destroy']);
 

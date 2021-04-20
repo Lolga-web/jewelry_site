@@ -16,14 +16,11 @@ class AdminCatalogController extends Controller
     {   
         $category = Category::query()->where('slug', $slug)->first();
         if($category){
-            $subByCategory = Subcategory::query()->where('category_id', $category->id)->get();
             $productsInCategory = Product::join('filters', 'products.id', '=', 'filters.product_id')
                                 ->where('category_id', $category->id)
                                 ->paginate(12);
             return view('admin.catalog')
-                    ->with('productsInCategory', $productsInCategory)
-                    ->with('subByCategory', $subByCategory)
-                    ->with('category', $category);  
+                    ->with('products', $productsInCategory);  
         } else {
             return back()->with('error', "Нет такой категории!");
         }   
@@ -67,5 +64,17 @@ class AdminCatalogController extends Controller
         $filters->save();
 
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
+    }
+
+    public function search(Request $request)
+    {
+        if($request->has('article')){
+            $article = $request->input('article') . '%';
+            $products = Product::join('filters', 'products.id', '=', 'filters.product_id')->where('article', 'like', $article)->paginate(12);
+            return view('admin.catalog')
+                    ->with('products', $products);  
+        } else {
+            return back()->with('error', 'Неверные параметры поиска');
+        }
     }
 }

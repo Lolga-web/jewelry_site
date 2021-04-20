@@ -28,10 +28,17 @@
 
                 @include('admin.menu')
 
-                <h3>Категория: {{ $category->title }}</h3>
+                <div class="catalog_search">
+                    <form class="catalog_search_form" action="{{ route('admin.search') }}" method="GET">
+                        <input type="text" class="form-control" name="article">
+                        <input type="submit" class="btn btn-primary" value="Найти">
+                    </form>
+                </div>
+
+                <h3>Результаты поиска:</h3>
 
                 <div class="product_list">
-                    @forelse($productsInCategory as $product)
+                    @forelse($products as $product)
                         
                         <div class="admin_product_item col-lg-12">
                             <div class="admin_product_item_body">
@@ -59,7 +66,7 @@
                                                 @endif
                                                 <select name="category_id" id="admin_product_category" class="form-control">
                                                     @foreach($categories as $item)
-                                                        <option @if ($item->id == $category->id) selected
+                                                        <option @if ($item->id == $product->category_id) selected
                                                                 @endif value="{{ $item->id }}">{{ $item->title }}</option>
                                                     @endforeach
                                                     <option @if ($product->category_id == 0) selected
@@ -67,19 +74,24 @@
                                                 </select>                                
                                             </div>
 
-                                            @if(!$subByCategory->isEmpty())
-                                                <div class="form-group admin_product_form_group">
-                                                    <label for="admin_product_item_category" class="col-form-label text-md-right">Подкатегория:</label>
-                                                    <select name="subcategory_id" id="admin_product_category" class="form-control">
-                                                        @foreach($subByCategory as $item)
-                                                            <option @if ($item->id == $product->subcategory_id) selected
-                                                                @endif value="{{ $item->id }}">{{ $item->title }}</option>
-                                                        @endforeach
-                                                        <option @if ($product->subcategory_id == 0) selected
-                                                                @endif value="0">-</option>
-                                                    </select>                                
-                                                </div>
-                                            @endif
+                                            @foreach($subcategories as $subcategory)
+                                                @if($subcategory->category_id == $product->category_id)
+                                                    <div class="form-group admin_product_form_group">
+                                                        <label for="admin_product_item_category" class="col-form-label text-md-right">Подкатегория:</label>
+                                                        <select name="subcategory_id" id="admin_product_category" class="form-control">
+                                                            @foreach($subcategories as $item)
+                                                                @if($product->category_id == $item->category_id)
+                                                                <option @if ($item->id == $product->subcategory_id) selected
+                                                                    @endif value="{{ $item->id }}">{{ $item->title }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                            <option @if ($product->subcategory_id == 0) selected
+                                                                    @endif value="0">-</option>
+                                                        </select>                                
+                                                    </div>
+                                                    @break
+                                                @endif
+                                            @endforeach
 
                                             <div class="form-group admin_product_form_group">
                                                 <label for="admin_product_item_weight" class="col-form-label text-md-right">Вес:</label>
@@ -203,8 +215,8 @@
                         <p>В данной категории ничего не найдено</p>
                     @endforelse
 
-                    <div class="product_pagination">{{ $productsInCategory->appends(request()->input())->links() }}</div>
-                    <div class="mobile_product_pagination">{{ $productsInCategory->appends(request()->input())->onEachSide(0)->links() }}</div>
+                    <div class="product_pagination">{{ $products->appends(request()->input())->links() }}</div>
+                    <div class="mobile_product_pagination">{{ $products->appends(request()->input())->onEachSide(0)->links() }}</div>
                         
                 </div>
 
