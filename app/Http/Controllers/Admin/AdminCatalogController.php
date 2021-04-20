@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminCatalogController extends Controller
 {
+    protected $title = 'каталог';
+
     public function show($slug)
     {   
         $category = Category::query()->where('slug', $slug)->first();
@@ -20,7 +22,9 @@ class AdminCatalogController extends Controller
                                 ->where('category_id', $category->id)
                                 ->paginate(12);
             return view('admin.catalog')
-                    ->with('products', $productsInCategory);  
+                    ->with('products', $productsInCategory)
+                    ->with('category', $category)
+                    ->with('title', $this->title);  
         } else {
             return back()->with('error', "Нет такой категории!");
         }   

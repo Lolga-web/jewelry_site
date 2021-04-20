@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminWorksController extends Controller
 {
+    protected $title = 'наши работы';
+
     public function index()
     {       
         $images =  Work::paginate(24);
-        return view('admin.works')->with('images', $images);
+        return view('admin.works')
+            ->with('images', $images)
+            ->with('title', $this->title);
     }
 
     public function destroy(Work $work) 

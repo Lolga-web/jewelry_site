@@ -8,21 +8,7 @@
         
         @if (Auth::user()->is_admin)
 
-            <div class="main_content_top">
-                <h2 class="main_content_title">Личный кабинет: Админ | Каталог</h2>
-
-                <div class="admin_logout_block">
-                    <a class="btn btn-danger" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                        {{ __('Выйти') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </div>
+            @include('admin.breadcrumb')
 
             <div class="main_content_body">
 
@@ -30,12 +16,10 @@
 
                 <div class="catalog_search">
                     <form class="catalog_search_form" action="{{ route('admin.search') }}" method="GET">
-                        <input type="text" class="form-control" name="article">
-                        <input type="submit" class="btn btn-primary" value="Найти">
+                        <input type="text" class="form-control" name="article" placeholder="Введите артикул">
+                        <input type="submit" class="btn btn-primary" value="Поиск">
                     </form>
                 </div>
-
-                <h3>Результаты поиска:</h3>
 
                 <div class="product_list">
                     @forelse($products as $product)

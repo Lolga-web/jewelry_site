@@ -1,12 +1,9 @@
-.main_content_top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .admin{
     &_menu{
         padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
     }
     &_product{
         &_item{
@@ -150,4 +147,15 @@
 }
 .form_wrp{
     width: 48%;
+}
+
+.catalog_search{
+    margin-bottom: 20px;
+    &_form{
+        display: flex;
+        & .form-control{
+            width: 300px;
+            margin-right: 10px;
+        }
+    }
 }

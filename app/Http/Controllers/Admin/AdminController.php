@@ -10,11 +10,14 @@ use App\Http\Requests\ProfileRequest;
 
 class AdminController extends Controller
 {
+    protected $title = 'данные профиля';
+
     public function index()
     {      
         $user = Auth::user(); 
         return view('admin.index')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('title', $this->title);
     }
 
     public function update(ProfileRequest $request)

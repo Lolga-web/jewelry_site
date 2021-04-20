@@ -10225,14 +10225,10 @@ h3 {
   z-index: -1;
 }
 
-.main_content_top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .admin_menu {
   padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
 .admin_product_item {
   padding: 10px 0;
@@ -10365,6 +10361,17 @@ h3 {
 
 .form_wrp {
   width: 48%;
+}
+
+.catalog_search {
+  margin-bottom: 20px;
+}
+.catalog_search_form {
+  display: flex;
+}
+.catalog_search_form .form-control {
+  width: 300px;
+  margin-right: 10px;
 }
 
 .footer {

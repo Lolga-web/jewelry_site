@@ -9,9 +9,11 @@ use Illuminate\Support\Str;
 
 class AdminCategoryController extends Controller
 {
+    protected $title = 'категории';
+
     public function index()
     {       
-        return view('admin.category');
+        return view('admin.category')->with('title', $this->title);
     }
 
     public function store(Request $request, Category $category) 
