@@ -41,7 +41,6 @@ class CatalogController extends Controller
             return back();
         }
         
-
         $productsInCategory = $builder->paginate(24);
 
         return view('catalog.category')

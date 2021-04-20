@@ -112,6 +112,41 @@
             padding: 20px;
         }
     }
+    &_category{
+        &_list{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &_item{
+            display: flex;
+            align-items: center;
+            background-color: rgb(190, 189, 189);
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        &_delete{
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+        &_delete_btn{
+            cursor: pointer;
+            width: 20px;
+        }
+        &_form_group{
+            margin: 0 20px 0 0;
+            display: flex;
+            & label{
+                margin-right: 10px;
+            }
+        }
+        &_add_form{
+            display: flex;
+            margin-bottom: 30px;
+        }
+    }
 }
 .form_wrp{
     width: 48%;

@@ -10329,6 +10329,39 @@ h3 {
   margin-bottom: 20px;
   padding: 20px;
 }
+.admin_category_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin_category_item {
+  display: flex;
+  align-items: center;
+  background-color: #bebdbd;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+.admin_category_delete {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+.admin_category_delete_btn {
+  cursor: pointer;
+  width: 20px;
+}
+.admin_category_form_group {
+  margin: 0 20px 0 0;
+  display: flex;
+}
+.admin_category_form_group label {
+  margin-right: 10px;
+}
+.admin_category_add_form {
+  display: flex;
+  margin-bottom: 30px;
+}
 
 .form_wrp {
   width: 48%;

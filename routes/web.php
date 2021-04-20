@@ -10,7 +10,7 @@ use App\Http\Controllers\DBController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminCatalogController;
-use App\Http\Controllers\Admin\AdminFilterController;
+use App\Http\Controllers\Admin\AdminSubcategoryController;
 use App\Http\Controllers\Admin\AdminWorksController;
 
 /*
@@ -42,9 +42,9 @@ Route::name('admin.')
 
         Route::resource('/catalog', AdminCatalogController::class);
         
-        Route::resource('/categories', AdminCategoryController::class);
+        Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'destroy']);
 
-        Route::resource('/filters', AdminFilterController::class);
+        Route::resource('/subcategories', AdminSubcategoryController::class)->only(['store', 'destroy']);
 
         Route::resource('/works', AdminWorksController::class);
     });
