@@ -58,6 +58,13 @@ Route::get('contacts', [ContactsController::class, 'index'])->name('contacts');
 
 Route::get('db', [DBController::class, 'db'])->name('db');
 
-Auth::routes();
+Auth::routes([
+    'confirm' => false,
+    'forgot' => false,
+    'login' => true,
+    'register' => false,
+    'reset' => false,
+    'verification' => false,
+]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
