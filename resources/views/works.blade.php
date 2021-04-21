@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| наши работы')
+
 @section('content')
 
     <h2 class="main_content_title">Наши работы</h2>

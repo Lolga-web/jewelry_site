@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| цепи')
+
 @section('content')
 
     <h2 class="main_content_title">Плетения цепей</h2>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| ' . $category->title)
+
 @section('content')
 
     @include('catalog.breadcrumb')
@@ -7,7 +9,7 @@
     @include('catalog.filters')
 
     <div class="product_list">
-        @forelse($productsInCategory as $product)
+        @forelse($products as $product)
 
             @if($category->id == 3) 
             
@@ -39,7 +41,7 @@
             
     </div>
 
-    <div class="product_pagination">{{ $productsInCategory->appends(request()->input())->links() }}</div>
-    <div class="mobile_product_pagination">{{ $productsInCategory->appends(request()->input())->onEachSide(0)->links() }}</div>
+    <div class="product_pagination">{{ $products->appends(request()->input())->links() }}</div>
+    <div class="mobile_product_pagination">{{ $products->appends(request()->input())->onEachSide(0)->links() }}</div>
 
 @endsection

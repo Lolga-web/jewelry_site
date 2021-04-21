@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| контакты')
+
 @section('content')
 
     <h2 class="main_content_title">Контакты</h2>

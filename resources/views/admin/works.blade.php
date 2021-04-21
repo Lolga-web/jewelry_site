@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| личный кабинет')
+
 @section('content')
 
     @guest

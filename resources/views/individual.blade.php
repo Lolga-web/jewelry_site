@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '| индивидуальный заказ')
+
 @section('content')
 
     <h2 class="main_content_title">Изготовление по индивидуальному заказу</h2>
