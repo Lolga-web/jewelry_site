@@ -46,7 +46,7 @@ Route::name('admin.')
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::post('/', [AdminController::class, 'update'])->name('update');
 
-        Route::resource('/catalog', AdminCatalogController::class);
+        Route::resource('/catalog', AdminCatalogController::class)->only(['show', 'update', 'destroy']);
         Route::get('/search', [AdminCatalogController::class, 'search'])->name('search');
         
         Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'destroy']);

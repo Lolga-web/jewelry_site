@@ -18,7 +18,7 @@
 
                 <div class="catalog_search">
                     <form class="catalog_search_form" action="{{ route('admin.search') }}" method="GET">
-                        <input type="text" class="form-control" name="article" placeholder="Введите артикул">
+                        <input type="text" class="form-control" name="article" placeholder="Введите артикул" value="{{ request()->input('article') }}">
                         <input type="submit" class="btn btn-primary" value="Поиск">
                     </form>
                 </div>

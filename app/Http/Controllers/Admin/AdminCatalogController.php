@@ -76,7 +76,8 @@ class AdminCatalogController extends Controller
             $article = $request->input('article') . '%';
             $products = Product::join('filters', 'products.id', '=', 'filters.product_id')->where('article', 'like', $article)->paginate(12);
             return view('admin.catalog')
-                    ->with('products', $products);  
+                    ->with('products', $products)
+                    ->with('title', $this->title);  
         } else {
             return back()->with('error', 'Неверные параметры поиска');
         }
