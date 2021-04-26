@@ -1,0 +1,171 @@
+@extends('layouts.app')
+
+@section('title', '| личный кабинет')
+
+@section('content')
+
+    @guest
+        <p>У вас нет прав доступа к этой странице</p>
+    @else 
+        
+        @if (Auth::user()->is_admin)
+
+            @include('admin.breadcrumb')
+
+            <div class="main_content_body">
+
+                @include('admin.menu')
+
+                <div class="admin_add_product">
+                        
+                    <form class="admin_product_item_form" method="POST" action="{{ route('admin.catalog.store') }}" 
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="form_wrp">
+
+                            <div class="form-group admin_product_form_group">
+                                <label for="admin_product_item_weight" class="col-form-label text-md-right">Артикул:</label>
+                                @if($errors->has('article'))
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach($errors->get('article') as $error)
+                                            <p>{{ $error }}</p>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                <input id="admin_product_item_weight" type="text" class="form-control" name="article" value="">
+                            </div>
+
+                            <div class="form-group admin_product_form_group">
+                                <label for="admin_product_item_category" class="col-form-label text-md-right">Категория:</label>
+                                @if ($errors->has('category_id'))
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach ($errors->get('category_id') as $error)
+                                            {{ $error }}
+                                        @endforeach
+                                    </div>
+                                @endif
+                                <select name="category_id" id="admin_product_category" class="form-control">
+                                    @foreach($categories as $item)
+                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    @endforeach
+                                    <option value="0">-</option>
+                                </select>                                
+                            </div>
+
+                            <div class="form-group admin_product_form_group">
+                                <label for="admin_product_item_category" class="col-form-label text-md-right">Подкатегория:</label>
+                                <select name="subcategory_id" id="admin_product_category" class="form-control">
+                                    @foreach($subcategories as $item)
+                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    @endforeach
+                                    <option value="0">-</option>
+                                </select>                                
+                            </div>
+
+                            <div class="form-group admin_product_form_group">
+                                <label for="admin_product_item_weight" class="col-form-label text-md-right">Вес:</label>
+                                @if($errors->has('weight'))
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach($errors->get('weight') as $error)
+                                            <p>{{ $error }}</p>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                <input id="admin_product_item_weight" type="text" class="form-control" name="weight" value="0">
+                            </div>
+
+                            <div class="form-group admin_product_form_group">
+                                <label for="admin_product_item_weight" class="col-form-label text-md-right">Приоритет:</label>
+                                @if($errors->has('priority'))
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach($errors->get('priority') as $error)
+                                            <p>{{ $error }}</p>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                <input id="admin_product_item_weight" type="number" class="form-control" name="priority" value="0">
+                            </div>
+                            
+                            <div class="form-group admin_product_form_img">
+                                <label for="admin_product_item_img" class="col-form-label text-md-right">Изображение:</label>
+                                <input id="admin_product_item_img" type="file" name="img">
+                            </div>
+                            @if ($errors->has('img'))
+                                <div class="alert alert-danger" role="alert">
+                                    @foreach ($errors->get('img') as $error)
+                                        {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                        
+                        <div class="form_wrp">
+                            <div class="form-group admin_product_item_filters">
+                                <div class="form-check">
+                                    <input name="stones" type="checkbox" value="1"
+                                        id="admin_product_item_stones" class="form-check-input">
+                                    <label for="admin_product_item_stones">с камнями</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="nostones" type="checkbox" value="1"
+                                        id="admin_product_item_nostones" class="form-check-input">
+                                    <label for="admin_product_item_nostones">без камней</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="pearls" type="checkbox" value="1"
+                                        id="admin_product_item_pearls" class="form-check-input">
+                                    <label for="admin_product_item_pearls">с жемчугом</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="male" type="checkbox" value="1"
+                                        id="admin_product_item_male" class="form-check-input">
+                                    <label for="admin_product_item_male">мужские</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="female" type="checkbox" value="1"
+                                        id="admin_product_item_female" class="form-check-input">
+                                    <label for="admin_product_item_female">женские</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="newborn" type="checkbox" value="1"
+                                        id="admin_product_item_newborn" class="form-check-input">
+                                    <label for="admin_product_item_newborn">рождение</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="zodiac" type="checkbox" value="1"
+                                        id="admin_product_item_zodiac" class="form-check-input">
+                                    <label for="admin_product_item_zodiac">знаки зодиака</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="love" type="checkbox" value="1"
+                                        id="admin_product_item_love" class="form-check-input">
+                                    <label for="admin_product_item_love">любовь</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="muslim" type="checkbox" value="1"
+                                        id="admin_product_item_muslim" class="form-check-input">
+                                    <label for="admin_product_item_muslim">мусульманские</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="enamel" type="checkbox" value="1"
+                                        id="admin_product_item_enamel" class="form-check-input">
+                                    <label for="admin_product_item_enamel">эмаль</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                Добавить
+                            </button> 
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+
+        @else
+            <p>У вас нет прав доступа к этой странице</p>
+        @endif
+    
+    @endguest
+
+@endsection

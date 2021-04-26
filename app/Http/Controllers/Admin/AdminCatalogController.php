@@ -70,6 +70,41 @@ class AdminCatalogController extends Controller
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
     }
 
+    public function create() 
+    {
+        return view('admin.create')->with('title', 'добавить в каталог');
+    }
+
+    public function store(Request $request, Product $catalog, Filter $filters)
+    {
+        $url = null;
+        if ($request->file('img')) {
+            $url = $request->input('article') . '.jpg';
+            Storage::putFileAs('public/img/catalog/', $request->file('img'), $url);
+        }
+        $catalog->img = $url;
+        $result = $catalog->fill($request->all())->save();
+
+        $filters->product_id = $catalog->id;
+        $filters->stones = $request->has('stones');
+        $filters->nostones = $request->has('nostones');
+        $filters->pearls = $request->has('pearls');
+        $filters->male = $request->has('male');
+        $filters->female = $request->has('female');
+        $filters->newborn = $request->has('newborn');
+        $filters->zodiac = $request->has('zodiac');
+        $filters->love = $request->has('love');
+        $filters->muslim = $request->has('muslim');
+        $filters->enamel = $request->has('enamel');
+        $filters->save();
+
+        if ($result){
+            return back()->with('success', 'Позиция добавлена!');
+        } else {
+            return back()->with('error', 'Ошибка добавления!');
+        }
+    }
+
     public function search(Request $request)
     {
         if($request->has('article')){

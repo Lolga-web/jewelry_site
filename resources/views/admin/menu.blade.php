@@ -17,6 +17,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.works.index') }}">наши работы</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.catalog.create') }}">добавить в каталог</a>
+        </li>
     </ul>
 
     <div class="admin_logout_block">
