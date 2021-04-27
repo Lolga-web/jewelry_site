@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Filter;
-use App\Models\Subcategory;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Storage;
 
 class AdminCatalogController extends Controller
@@ -28,6 +28,33 @@ class AdminCatalogController extends Controller
         } else {
             return back()->with('error', "Нет такой категории!");
         }   
+    }
+
+    public function create() 
+    {
+        return view('admin.create')->with('title', 'добавить в каталог');
+    }
+
+    public function store(ProductRequest $request, Product $catalog, Filter $filters)
+    {
+        $request->validated(); 
+
+        $url = null;
+        if ($request->file('img')) {
+            $url = $request->input('article') . '.jpg';
+            Storage::putFileAs('public/img/catalog/', $request->file('img'), $url);
+        }
+        $catalog->img = $url;
+        $result = $catalog->fill($request->all())->save();
+
+        $filters->product_id = $catalog->id;
+        $this->addFilters($filters, $request);
+
+        if ($result){
+            return back()->with('success', 'Позиция добавлена!');
+        } else {
+            return back()->with('error', 'Ошибка добавления!');
+        }
     }
 
     public function destroy(Product $catalog) 
@@ -55,54 +82,9 @@ class AdminCatalogController extends Controller
         $catalog->fill($request->all())->save();
 
         $filters = Filter::query()->where('product_id', $catalog->id)->first();
-        $filters->stones = $request->has('stones');
-        $filters->nostones = $request->has('nostones');
-        $filters->pearls = $request->has('pearls');
-        $filters->male = $request->has('male');
-        $filters->female = $request->has('female');
-        $filters->newborn = $request->has('newborn');
-        $filters->zodiac = $request->has('zodiac');
-        $filters->love = $request->has('love');
-        $filters->muslim = $request->has('muslim');
-        $filters->enamel = $request->has('enamel');
-        $filters->save();
+        $this->addFilters($filters, $request);
 
         return back()->with('success', 'Артикул ' . $catalog->article . ' изменен!');
-    }
-
-    public function create() 
-    {
-        return view('admin.create')->with('title', 'добавить в каталог');
-    }
-
-    public function store(Request $request, Product $catalog, Filter $filters)
-    {
-        $url = null;
-        if ($request->file('img')) {
-            $url = $request->input('article') . '.jpg';
-            Storage::putFileAs('public/img/catalog/', $request->file('img'), $url);
-        }
-        $catalog->img = $url;
-        $result = $catalog->fill($request->all())->save();
-
-        $filters->product_id = $catalog->id;
-        $filters->stones = $request->has('stones');
-        $filters->nostones = $request->has('nostones');
-        $filters->pearls = $request->has('pearls');
-        $filters->male = $request->has('male');
-        $filters->female = $request->has('female');
-        $filters->newborn = $request->has('newborn');
-        $filters->zodiac = $request->has('zodiac');
-        $filters->love = $request->has('love');
-        $filters->muslim = $request->has('muslim');
-        $filters->enamel = $request->has('enamel');
-        $filters->save();
-
-        if ($result){
-            return back()->with('success', 'Позиция добавлена!');
-        } else {
-            return back()->with('error', 'Ошибка добавления!');
-        }
     }
 
     public function search(Request $request)
@@ -116,5 +98,20 @@ class AdminCatalogController extends Controller
         } else {
             return back()->with('error', 'Неверные параметры поиска');
         }
+    }
+
+    public function addFilters($filters, $request)
+    {
+        $filters->stones = $request->has('stones');
+        $filters->nostones = $request->has('nostones');
+        $filters->pearls = $request->has('pearls');
+        $filters->male = $request->has('male');
+        $filters->female = $request->has('female');
+        $filters->newborn = $request->has('newborn');
+        $filters->zodiac = $request->has('zodiac');
+        $filters->love = $request->has('love');
+        $filters->muslim = $request->has('muslim');
+        $filters->enamel = $request->has('enamel');
+        return $filters->save();
     }
 }

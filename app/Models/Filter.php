@@ -45,4 +45,5 @@ class Filter extends Model
 
         return $builder;
     }
+
 }
