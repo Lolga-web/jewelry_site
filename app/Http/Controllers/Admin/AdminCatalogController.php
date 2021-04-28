@@ -51,7 +51,7 @@ class AdminCatalogController extends Controller
         $this->addFilters($filters, $request);
 
         if ($result){
-            return back()->with('success', 'Позиция добавлена!');
+            return back()->with('success', 'Артикул ' . $request->input('article') . ' добавлен!');
         } else {
             return back()->with('error', 'Ошибка добавления!');
         }

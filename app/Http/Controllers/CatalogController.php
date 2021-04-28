@@ -40,4 +40,17 @@ class CatalogController extends Controller
                 ->with('subslug', $subslug);
     }
 
+    public function search(Request $request)
+    {
+        if($request->has('article')){
+            $article = $request->input('article') . '%';
+            $products = Product::join('filters', 'products.id', '=', 'filters.product_id')->where('article', 'like', $article)->paginate(24);
+            return view('catalog.search')
+                    ->with('products', $products);  
+        } else {
+            return back()->with('error', 'Неверные параметры поиска');
+        }
+        // dd($request);
+    }
+
 }

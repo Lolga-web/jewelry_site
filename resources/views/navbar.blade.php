@@ -48,9 +48,10 @@
                 <a class="nav-link" href="{{ route('contacts') }}">Контакты</a>
             </li> 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+        <form class="form-inline my-2 my-lg-0" action="{{ route('catalog.search') }}" method="GET">
+            <input class="form-control mr-sm-2" type="search" name="article" placeholder="Введите артикул" 
+                value="{{ request()->input('article') }}" aria-label="Search" required>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
         </form>
     </div>
 </nav>
