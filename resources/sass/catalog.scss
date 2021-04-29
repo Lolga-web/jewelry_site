@@ -74,4 +74,14 @@
     border-color: #343a40;
 }
 
-
+.empty_search{
+    &_wrp{
+        padding: 20% 10%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        & p{
+            text-align: center;
+        }
+    }
+}

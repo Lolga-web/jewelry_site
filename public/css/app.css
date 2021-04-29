@@ -10160,6 +10160,16 @@ h3 {
   border-color: #343a40;
 }
 
+.empty_search_wrp {
+  padding: 20% 10%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.empty_search_wrp p {
+  text-align: center;
+}
+
 .main_content_img {
   width: 100%;
   padding: 0;

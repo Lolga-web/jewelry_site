@@ -49,9 +49,9 @@
             </li> 
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{{ route('catalog.search') }}" method="GET">
-            <input class="form-control mr-sm-2" type="search" name="article" placeholder="Введите артикул" 
-                value="{{ request()->input('article') }}" aria-label="Search" required>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            <input id="search_value" class="form-control mr-sm-2" type="search" name="article" placeholder="Введите артикул" 
+                value="{{ request()->input('article') }}" aria-label="Search" oninput="checkSearch()">
+            <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Поиск</button>
         </form>
     </div>
 </nav>
