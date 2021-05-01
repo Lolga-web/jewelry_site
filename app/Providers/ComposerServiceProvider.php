@@ -25,6 +25,6 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['layouts.app', 'admin.*'], MenuComposer::class);
+        View::composer(['layouts.app', 'admin.*', 'catalog.index'], MenuComposer::class);
     }
 }

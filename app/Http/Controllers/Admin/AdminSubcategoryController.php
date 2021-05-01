@@ -13,7 +13,7 @@ class AdminSubcategoryController extends Controller
     {   
         $arr = $request->all();
         if(Subcategory::where('title', $arr['title'])->first()){
-            return back()->with('success', "Подкатегория ".$arr['title']." уже существует.");
+            return back()->with('error', "Подкатегория ".$arr['title']." уже существует.");
         }   
         $subcategory->slug = Str::slug($arr['title'], '-');
         $subcategory->fill($arr)->save();

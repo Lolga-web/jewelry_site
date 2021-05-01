@@ -11,6 +11,11 @@ use App\Models\Filter;
 
 class CatalogController extends Controller
 {
+    public function index()
+    {
+
+    }
+    
     public function show(Filter $filter, Request $request, $slug = null, $subslug = null)
     {
         $builder = Product::join('filters', 'products.id', '=', 'filters.product_id');

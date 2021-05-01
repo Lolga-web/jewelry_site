@@ -10083,6 +10083,47 @@ h3 {
   margin-left: auto;
 }
 
+.catalog_subcategory_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.catalog_subcategory_list::after {
+  content: "";
+  width: 24%;
+}
+.catalog_subcategory_link {
+  width: 24%;
+  margin-bottom: 1%;
+  min-height: 300px;
+  background-color: #fff;
+}
+.catalog_subcategory_item {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.catalog_subcategory_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.catalog_subcategory_img_wrp {
+  width: 100%;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty {
+  width: 24%;
+}
+
 .product_list {
   display: flex;
   flex-wrap: wrap;
