@@ -20,7 +20,6 @@ class AdminCatalogController extends Controller
         if($category){
             $productsInCategory = Product::join('filters', 'products.id', '=', 'filters.product_id')
                                 ->where('category_id', $category->id)
-                                ->where('subcategory_id', 1)
                                 ->paginate(12);
             return view('admin.catalog')
                     ->with('products', $productsInCategory)

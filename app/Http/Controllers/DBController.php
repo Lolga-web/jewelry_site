@@ -84,5 +84,11 @@ class DBController extends Controller
         //         'pearls' => 0
         //     ]);
         // }
+
+        // $p = DB::table('products')->get();
+        // foreach($p as $a){
+        //     // dd($a);
+        //     if($a->subcategory_id !== 2) DB::table('products')->where('id', $a->id)->update(['subcategory_id' => 0]);
+        // }
     }
 }

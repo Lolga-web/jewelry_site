@@ -21,16 +21,6 @@
                             <a href="{{ route('catalog.category.show', $category->slug) }}" class="dropdown-item">
                                 {{ $category->title }} 
                             </a>
-                            @if($subcategories)
-                                @foreach($subcategories as $subcategory)
-                                    @if($category->id == $subcategory->category_id)
-                                        <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}" 
-                                            class="dropdown-item">
-                                            {{ $subcategory->title }}
-                                        </a>
-                                    @endif
-                                @endforeach
-                            @endif
                         @endforeach
                     @endif
                     <a href="{{ route('catalog.chains') }}" class="dropdown-item">

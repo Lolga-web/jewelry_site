@@ -53,7 +53,7 @@ class CatalogController extends Controller
             return view('catalog.search')
                     ->with('products', $products);  
         } else {
-            return back()->with('error', 'Неверные параметры поиска');
+            return back();
         }
     }
 

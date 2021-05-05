@@ -25,7 +25,7 @@
                     <p>К сожалению, по вашему запросу ничего не найдено. Проверьте правильность ввода или попробуйте изменить запрос.</p>
                     <div class="empty_search_btns">
                         <a href="/" class="empty_search_main_link">Вернуться на главную</a>
-                        <a href="#" class="empty_search_catalog_link">Перейти в каталог</a>
+                        <a href="{{ route('catalog.index') }}" class="empty_search_catalog_link">Перейти в каталог</a>
                     </div>
                 </div>
             </div>
