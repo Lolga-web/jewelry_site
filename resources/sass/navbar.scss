@@ -1,23 +1,125 @@
-.navbar-phone{
-    color: #fff;
-    &:hover{
-        color: rgba(255, 255, 255, 0.75);
-        text-decoration: none;
+
+.navbar{
+    padding-top: 1rem;
+    border-bottom: 0.2rem solid $gold;
+    &-logo{
+        width: 100%;
+    }
+    &-brand{
+        width: 30%;
+        padding: 0;
+        margin-right: 2rem;
+    }
+    &-phone{
+        &:hover{
+            color: $gold;
+            transition: 0.3s;
+        }
+    }
+    &-city{
+        padding: 0;
+        margin: 0 2rem 0 0;
+    }
+    &-collapse{
+        margin-top: 1rem;
+        & .form-inline{
+            flex-flow: row nowrap;
+        }
+        & input{
+            margin-right: 0.5rem;
+        }
+        &-phone{
+            color: rgba(0, 0, 0, 0.5);
+            display: block;
+            text-align: center;
+        }
+    }
+    &-dropdown-item{
+        display: block;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: $gold;
+        // border: 1px solid rgba($color: $gold, $alpha: 0.65);
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 5px;
+        &:active{
+            color: #fff;
+            text-decoration: none;
+            background-color: $gold;
+        }
+        &:focus{
+            color: #fff;
+            text-decoration: none;
+            background-color: $gold;
+        }
+        &:hover{
+            color: #fff;
+            text-decoration: none;
+            background-color: $gold;
+        }
     }
 }
 
+.nav-item{
+    text-transform: uppercase;
+}
+
+.btn-outline-success{
+    color: $gold;
+    border-color: $gold;
+    &:disabled{
+        color: $gold;
+        &:hover{
+            color: $gold;
+            background-color: #fff;
+            border-color: $gold;
+        }
+    }
+    &:hover{
+        color: #fff;
+        background-color: $gold;
+        border-color: $gold;
+    }
+}
+
+.form-control:focus{
+    border-color: $gold;
+    box-shadow: 0 0 0 0.2rem rgb(222 186 143 / 25%);
+}
+.form-inline {
+    margin-left: auto;
+}
+
+.dropdown-menu{
+    border: none;
+}
+
 @media (min-width: 992px){
-    .navbar-nav{
-        display: none;
+    .navbar{
+        &-nav{
+            display: none;
+        }
+        &-collapse-phone{
+            display: none;
+        }
     }
 }
 
 @media (max-width: 993px){
-    .navbar-nav{
-        display: block;
+    .navbar{
+        &-nav{
+            display: block;
+        }
+        &-city{
+            display: none;
+        }
+        &-phone{
+            display: none;
+        }
+        &-brand{
+            width: 65%;
+        }
     }
 }
 
-.form-inline {
-    margin-left: auto;
-}
