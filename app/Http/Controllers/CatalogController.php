@@ -20,6 +20,9 @@ class CatalogController extends Controller
     {
         $builder = Product::join('filters', 'products.id', '=', 'filters.product_id');
         $category = Category::query()->where('slug', $slug)->first();
+
+        if($category->id == 14) return view('catalog.chains')->with('category', $category);
+        
         $subcategory = Subcategory::query()->where('slug', $subslug)->first();
 
         if($slug && !$category) return back();

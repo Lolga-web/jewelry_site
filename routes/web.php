@@ -30,9 +30,9 @@ Route::name('catalog.')
     ->prefix('catalog')
     ->group(function () {
         Route::view('/', 'catalog.index')->name('index');
-        Route::view('/chains', 'catalog.chains')->name('chains');
         Route::get('/search', [CatalogController::class, 'search'])->name('search');
-        Route::get('/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');
+        Route::get('/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');        
+        Route::view('/chains', 'catalog.chains')->name('chains');
     });
 
 Route::view('/individual', 'individual')->name('individual');

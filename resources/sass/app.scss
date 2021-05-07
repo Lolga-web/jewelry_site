@@ -24,6 +24,9 @@ a:hover{
     color: black;
     text-decoration: none;
 }
+li{
+    list-style-type: none;
+}
 html, body, #app {
     height: 100%;
 }
