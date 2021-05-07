@@ -10208,6 +10208,57 @@ h3 {
   color: #deba8f;
 }
 
+.product_filters {
+  display: flex;
+  padding: 1rem 0;
+}
+.product_filters_form {
+  width: 100%;
+  display: flex;
+}
+.product_filters_form label {
+  margin: 0;
+}
+.product_filters_form input[type=submit] {
+  background-color: #deba8f;
+  color: #fff;
+  padding: 0;
+  margin-right: 20px;
+  width: 150px;
+  border-radius: 4px;
+}
+.product_filters_list {
+  display: flex;
+  margin: 0 auto 0 0;
+}
+.product_filters_item {
+  margin-right: 20px;
+}
+.product_filters_delete {
+  width: 150px;
+  color: #deba8f;
+  border: 1px solid #deba8f;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product_filters_delete:hover {
+  background-color: #deba8f;
+  color: #fff;
+  border: none;
+}
+
+.catalog_top_message {
+  text-align: center;
+  margin: 0;
+}
+.catalog_top_message a {
+  text-decoration: underline;
+}
+.catalog_top_message a:hover {
+  color: #deba8f;
+}
 .catalog_subcategory_list {
   display: flex;
   flex-wrap: wrap;
@@ -10249,6 +10300,38 @@ h3 {
   width: 24%;
 }
 
+.empty_catalog {
+  width: 100%;
+  padding: 5rem 0;
+  text-align: center;
+}
+.empty_catalog p {
+  margin: 0;
+}
+.empty_catalog_btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.empty_catalog_btns a:first-child {
+  margin-right: 20px;
+}
+.empty_catalog_btns a {
+  color: #deba8f;
+  border-radius: 4px;
+  width: 200px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #deba8f;
+}
+.empty_catalog_btns a:hover {
+  background-color: #deba8f;
+  color: #fff;
+  border: none;
+}
+
 .product_list {
   display: flex;
   flex-wrap: wrap;
@@ -10266,7 +10349,7 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(222, 186, 143, 0.5);
 }
 .product_item_img {
   max-width: 100%;
@@ -10309,6 +10392,7 @@ h3 {
 }
 .pagination {
   margin: 0;
+  justify-content: center;
 }
 
 .page-link {
@@ -10620,5 +10704,5 @@ html, body, #app {
 
 main {
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 0 0 1rem;
 }

@@ -10,6 +10,7 @@
 @import 'mainnav.scss';
 @import 'navbar.scss';
 @import 'breadcrumb.scss';
+@import 'filters.scss';
 @import 'catalog.scss';
 @import 'individual.scss';
 @import 'works.scss';
@@ -45,7 +46,7 @@ html, body, #app {
 }
 main{
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 0 0 1rem;
 }
 
 
