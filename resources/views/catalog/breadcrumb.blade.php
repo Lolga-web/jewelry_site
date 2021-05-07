@@ -2,11 +2,11 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ route('catalog.index') }}">Каталог</a>
+            <a class="breadcrumb-link" href="{{ route('catalog.index') }}">Каталог</a>
         </li>
-        <li class="breadcrumb-item" @if(!$subcategory) aria-current="page" @endif>
+        <li class="breadcrumb-item active" @if(!$subcategory) aria-current="page" @endif>
             @if($subcategory)
-                <a href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => null]) }}">{{ $category->title }}</a>
+                <a class="breadcrumb-link" href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => null]) }}">{{ $category->title }}</a>
             @else
                 {{ $category->title }}
             @endif

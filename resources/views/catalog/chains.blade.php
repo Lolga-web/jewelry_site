@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('catalog.breadcrumb')
+
     <h2 class="main_content_title">Плетения цепей</h2>
 
     <p class="main_content_text">
