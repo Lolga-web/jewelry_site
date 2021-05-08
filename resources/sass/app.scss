@@ -29,6 +29,9 @@ a:hover{
 li{
     list-style-type: none;
 }
+.btn:focus{
+    box-shadow: none;
+}
 html, body, #app {
     height: 100%;
 }
@@ -47,6 +50,12 @@ html, body, #app {
 main{
     width: 100%;
     padding: 0 0 0 1rem;
+}
+
+@media (max-width: 767px){
+    main{
+        padding: 0;
+    }
 }
 
 

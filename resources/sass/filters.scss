@@ -5,6 +5,8 @@
         &_form{
             width: 100%;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             & label{
                 margin: 0;
             }
@@ -37,6 +39,38 @@
                 color: #fff;
                 border: none;
             }
+            &:active{
+                background-color: $gold;
+                color: #fff;
+                border: none;
+            }
+            &:focus{
+                background-color: $gold;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .product_filters_list{
+        margin: 0 auto 0.5rem auto;
+    }
+}
+
+@media (max-width: 400px){
+    .product_filters_list{
+        flex-direction: column;
+        width: 100%;
+    }
+    .product_filters_form{
+        & input[type=submit]{
+            width: 100%;
+            margin: 0 0 0.5rem 0;
+        }
+        & a{
+            width: 100%;
         }
     }
 }

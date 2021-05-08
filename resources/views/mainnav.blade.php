@@ -19,4 +19,38 @@
         <li class="main_nav_item"><a href="{{ route('works') }}" class="main_nav_link">Наши работы</a></li>
         <li class="main_nav_item"><a href="{{ route('contacts') }}" class="main_nav_link">Контакты</a></li>
     </ul>
+
+    <div class="main_nav_schedule">
+            <h2 class="main_nav_title">График работы</h2>
+            <div class="main_nav_schedule_body">
+                <div>
+                    <p class="main_nav_schedule_day">понедельник</p>
+                    <p class="main_nav_schedule_time">10:00 - 18:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">вторник</p>
+                    <p class="main_nav_schedule_time">10:00 - 18:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">среда</p>
+                    <p class="main_nav_schedule_time">10:00 - 18:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">четверг</p>
+                    <p class="main_nav_schedule_time">10:00 - 18:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">пятница</p>
+                    <p class="main_nav_schedule_time">10:00 - 18:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">суббота</p>
+                    <p class="main_nav_schedule_time">10:00 - 15:00</p>
+                </div>
+                <div>
+                    <p class="main_nav_schedule_day">воскресенье</p>
+                    <p class="main_nav_schedule_time">выходной</p>
+                </div>
+            </div>
+        </div>
 </nav>

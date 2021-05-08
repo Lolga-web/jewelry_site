@@ -11,6 +11,7 @@
         margin-right: 2rem;
     }
     &-phone{
+        font-size: 18px;
         &:hover{
             color: $gold;
             transition: 0.3s;
@@ -57,6 +58,22 @@
             color: #fff;
             text-decoration: none;
             background-color: $gold;
+        }
+    }
+    &-collapse{
+        &-phone{
+            &:focus{
+                color: $gold;
+                transition: 0.3s;
+            }
+            &:hover{
+                color: $gold;
+                transition: 0.3s;
+            }
+            &:active{
+                color: $gold;
+                transition: 0.3s;
+            }
         }
     }
 }
