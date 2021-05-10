@@ -10,3 +10,14 @@
         }
     }
 }
+
+.breadcrumb-item + .breadcrumb-item{
+    padding-left: 0.3rem;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    // content: ">";
+    padding-right: 0.3rem;
+}
+.breadcrumb-link{
+    text-decoration: underline;
+}

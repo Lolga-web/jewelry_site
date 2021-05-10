@@ -11,6 +11,7 @@
 @import 'navbar.scss';
 @import 'breadcrumb.scss';
 @import 'filters.scss';
+@import 'pagination.scss';
 @import 'catalog.scss';
 @import 'individual.scss';
 @import 'works.scss';
@@ -46,15 +47,24 @@ html, body, #app {
         flex: 1 0 auto;
         display: flex;
     }
+    &_content{
+        &_title{
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        &_text{
+            margin: 0;
+        }
+    }
 }
 main{
     width: 100%;
-    padding: 0 0 0 1rem;
+    padding: 0 0 1rem 1.5rem;
 }
 
 @media (max-width: 767px){
     main{
-        padding: 0;
+        padding: 0 0 1rem 0;
     }
 }
 

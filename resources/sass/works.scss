@@ -3,21 +3,33 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        padding: 1rem 0;
     }
     &_item{
         width: 32%;
-        padding: 0;
+        // padding: 0;
+        padding: 10px;
         margin-bottom: 2%;
-        background-color: rgb(221, 221, 221);
+        border: 1px solid rgba(222, 186, 143, 0.5);
     }
     &_img{
         width: 100%;
         padding: 0;
+        &_wrp{
+            min-height: 120px;
+            height: 100%;
+            background-color: #e8e8e8;
+        }
     }
 }
 
-@media (max-width: 575px){
-    .works_img{
+@media (max-width: 767px){
+    .works_item{
         width: 49%;
+    }
+}
+@media (max-width: 576px){
+    .works_img_wrp{
+        min-height: 80px;
     }
 }

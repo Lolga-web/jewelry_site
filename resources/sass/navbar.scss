@@ -62,6 +62,8 @@
     }
     &-collapse{
         &-phone{
+            text-align: center;
+            display: block;
             &:focus{
                 color: $gold;
                 transition: 0.3s;
@@ -110,6 +112,13 @@
 
 .dropdown-menu{
     border: none;
+}
+
+.mobile_search_form{
+    flex-flow: row nowrap;
+    & input{
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 992px){

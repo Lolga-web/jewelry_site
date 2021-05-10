@@ -20,13 +20,12 @@
     
         @empty
 
-            <div class="empty_search">
-                <div class="empty_search_wrp">
-                    <p>К сожалению, по вашему запросу ничего не найдено. Проверьте правильность ввода или попробуйте изменить запрос.</p>
-                    <div class="empty_search_btns">
-                        <a href="/" class="empty_search_main_link">Вернуться на главную</a>
-                        <a href="{{ route('catalog.index') }}" class="empty_search_catalog_link">Перейти в каталог</a>
-                    </div>
+            <div class="empty_catalog">
+                <p>К сожалению, по вашему запросу ничего не найдено.</p>
+                <p>Проверьте правильность ввода или попробуйте изменить запрос.</p>
+                <div class="empty_catalog_btns">
+                    <a href="/">Вернуться на главную</a>
+                    <a href="{{ route('catalog.index') }}">Перейти в каталог</a>
                 </div>
             </div>
             

@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('breadcrumb', ['title' => 'контакты'])
+
     <h2 class="main_content_title">Контакты</h2>
 
     <div class="main_content_body">
