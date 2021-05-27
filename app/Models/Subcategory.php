@@ -11,7 +11,7 @@ class Subcategory extends Model
 
     protected $table = 'subcategories';
 
-    protected $fillable = ['title', 'slug', 'category_id'];
+    protected $fillable = ['title', 'slug', 'category_id', 'img'];
 
     public function products()
     {

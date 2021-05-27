@@ -29,9 +29,9 @@ Route::get('index', [HomeController::class, 'index']);
 Route::name('catalog.')
     ->prefix('catalog')
     ->group(function () {
-        Route::view('/', 'catalog.index')->name('index');
+        Route::view('/', 'catalog.index', ['subcategory' => false, 'category' => false])->name('index');
         Route::get('/search', [CatalogController::class, 'search'])->name('search');
-        Route::get('/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');        
+        Route::get('/{slug}/{subslug?}', [CatalogController::class, 'show'])->name('category.show');
         Route::view('/chains', 'catalog.chains')->name('chains');
     });
 
@@ -50,10 +50,10 @@ Route::name('admin.')
 
         Route::resource('/catalog', AdminCatalogController::class)->only(['show', 'update', 'create', 'store', 'destroy']);
         Route::get('/search', [AdminCatalogController::class, 'search'])->name('search');
-        
+
         Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'destroy']);
 
-        Route::resource('/subcategories', AdminSubcategoryController::class)->only(['store', 'destroy']);
+        Route::resource('/subcategories', AdminSubcategoryController::class)->only(['store', 'update', 'destroy']);
 
         Route::resource('/works', AdminWorksController::class);
     });

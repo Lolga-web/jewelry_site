@@ -13,14 +13,23 @@ function checkSearch(){
     }
 }
 
-window.onload = function () {  
-    $('.main_nav_link').each(function () { 
-        let location = window.location.href; 
-        let link = this.href;  
-        if(location == link) { 
-            $(this).addClass('gold');
-        }
-    });
-};
+// document.addEventListener("DOMContentLoaded", function () {  
+//     $('.main_nav_link').each(function () { 
+//         let location = window.location.href; 
+//         let link = this.href;  
+//         if(location == link) { 
+//             $(this).addClass('gold');
+//         }
+//     })});
+
+// window.onload = function () {  
+//     $('.main_nav_link').each(function () { 
+//         let location = window.location.href; 
+//         let link = this.href;  
+//         if(location == link) { 
+//             $(this).addClass('gold');
+//         }
+//     });
+// };
 
 

@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('catalog.breadcrumb')
+
     <h2 class="catalog_title">Каталог</h2>
 
     <div class="catalog_list">

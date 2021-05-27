@@ -6,8 +6,8 @@
 
     @guest
         <p>У вас нет прав доступа к этой странице</p>
-    @else 
-        
+    @else
+
         @if (Auth::user()->is_admin)
 
             @include('admin.breadcrumb')
@@ -21,12 +21,14 @@
                 <div class="admin_category_list">
                     @foreach($categories as $category)
                         <div class="admin_category_item">
-                            {{ $category->title }}
-                            <form class="admin_category_delete" action="{{ route('admin.categories.destroy', $category) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <input class="admin_category_delete_btn" type="image" src="{{ asset('storage/img/main/delete.png') }}">
-                            </form>
+                            <div class="admin_category_item_text">
+                                {{ $category->title }}
+                                <form class="admin_category_delete" action="{{ route('admin.categories.destroy', $category) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input class="admin_category_delete_btn" type="image" src="{{ asset('storage/img/main/delete.png') }}">
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -47,19 +49,33 @@
 
                     <button type="submit" class="btn btn-primary">
                        Добавить
-                    </button> 
+                    </button>
                 </form>
 
                 <h3 class="admin_category_title">Список подкатегорий:</h3>
 
                 <div class="admin_category_list">
                     @foreach($subcategories as $subcategory)
-                        <div class="admin_category_item">{{ $subcategory->title }}
+                        <div class="admin_category_item">
                             <form class="admin_category_delete" action="{{ route('admin.subcategories.destroy', $subcategory) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input class="admin_category_delete_btn" type="image" src="{{ asset('storage/img/main/delete.png') }}">
                             </form>
+                            <img class="admin_category_img" src="{{ asset('storage/img/catalog/' . $subcategory->img) }}" alt="subcategory-img">
+                            <div class="admin_category_item_text">
+                                <form class="admin_category_edit_form" method="POST" action="{{ route('admin.subcategories.update', $subcategory->id) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <input class="admin_category_edit_title" type="text" class="form-control" name="title"
+                                        value="{{ $subcategory->title ?? '' }}" placeholder="Название...">
+                                    <input id="admin_category_add_img" class="admin_category_add_title" type="text" class="form-control" name="img"
+                                        value="{{ $subcategory->img ?? '' }}" placeholder="Изображение...">
+                                        <button type="submit" class="btn btn-success">
+                                            Изменить
+                                         </button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -79,6 +95,18 @@
                     </div>
 
                     <div class="form-group admin_category_form_group">
+                        <label for="admin_category_add_img" class="col-form-label text-md-right">Изображение:</label>
+                        @if($errors->has('img'))
+                            <div class="alert alert-danger" role="alert">
+                                @foreach($errors->get('img') as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
+                        <input id="admin_category_add_img" class="admin_category_add_title" type="text" class="form-control" name="img">
+                    </div>
+
+                    <div class="form-group admin_category_form_group">
                         <label for="admin_category_add_category" class="col-form-label text-md-right">Категория:</label>
                         @if ($errors->has('category_id'))
                             <div class="alert alert-danger" role="alert">
@@ -91,12 +119,12 @@
                             @foreach($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach
-                        </select>                                
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-primary">
                        Добавить
-                    </button> 
+                    </button>
                 </form>
 
             </div>
@@ -104,7 +132,7 @@
         @else
             <p>У вас нет прав доступа к этой странице</p>
         @endif
-    
+
     @endguest
 
 @endsection

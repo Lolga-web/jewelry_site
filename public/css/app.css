@@ -10470,6 +10470,7 @@ h3 {
 .product_item_img {
   max-width: 100%;
   max-height: 100%;
+  z-index: 1;
 }
 .product_item_img_wrp {
   width: 100%;
@@ -10531,6 +10532,12 @@ h3 {
     margin: 0 0 0.5rem 0;
   }
 }
+.load {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+}
+
 .works_list {
   display: flex;
   justify-content: space-between;
@@ -10697,15 +10704,30 @@ h3 {
   flex-wrap: wrap;
 }
 .admin_category_item {
+  width: 24%;
+  position: relative;
   display: flex;
   align-items: center;
-  background-color: #bebdbd;
-  margin-right: 10px;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 10px;
+  margin-right: 1%;
   padding: 5px;
+  border: 1px solid #bebdbd;
   border-radius: 4px;
 }
+.admin_category_item_text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.admin_category_img {
+  width: 100px;
+}
 .admin_category_delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
   width: 20px;
   height: 20px;
   margin-left: 10px;
@@ -10723,7 +10745,16 @@ h3 {
 }
 .admin_category_add_form {
   display: flex;
+  margin-top: 10px;
   margin-bottom: 30px;
+}
+.admin_category_edit_form {
+  width: 100%;
+}
+.admin_category_edit_form input {
+  width: 100%;
+  padding: 2px 5px;
+  margin-bottom: 5px;
 }
 
 .form_wrp {

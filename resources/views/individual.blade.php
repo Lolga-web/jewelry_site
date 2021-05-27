@@ -33,7 +33,9 @@
             </div>
             <div class="works_item">
                 <div class="works_img_wrp">
-                    <img class="works_img" src="{{ asset('storage/img/individual/04.jpg') }}" alt="individual-img">
+                    <div class="works_img_wrp">
+                        <img class="works_img" src="{{ asset('storage/img/individual/04.jpg') }}" alt="individual-img">
+                    </div>
                 </div>
             </div>
             <div class="works_item">

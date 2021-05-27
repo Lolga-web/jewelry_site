@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Ювелирная мастерская') }} @section('title') @show</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" async></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +18,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {  
+      document.querySelectorAll('.main_nav_link').forEach(function(e){
+        let location = window.location.href;
+        let link = e.href;  
+        if(location == link) { 
+            e.classList.add('gold');
+        }
+      })
+    // $('.main_nav_link').each(function () { 
+    //     let location = window.location.href; 
+    //     let link = this.href;  
+    //     if(location == link) { 
+    //         $(this).addClass('gold');
+    //     }
+    // })
+});
+</script>
 
 </head>
 <body>
