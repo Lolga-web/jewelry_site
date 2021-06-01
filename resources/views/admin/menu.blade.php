@@ -4,6 +4,9 @@
         <li class="nav-item">
             <a class="nav-link active" href="{{ route('admin.categories.index') }}">категории</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ route('admin.subcategories.index') }}">подкатегории</a>
+        </li>
         <li class="nav-item dropdown">
             <p class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">каталог</p>
             <div class="dropdown-menu">

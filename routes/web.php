@@ -51,9 +51,9 @@ Route::name('admin.')
         Route::resource('/catalog', AdminCatalogController::class)->only(['show', 'update', 'create', 'store', 'destroy']);
         Route::get('/search', [AdminCatalogController::class, 'search'])->name('search');
 
-        Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'destroy']);
+        Route::resource('/categories', AdminCategoryController::class)->only(['index', 'store', 'update', 'destroy']);
 
-        Route::resource('/subcategories', AdminSubcategoryController::class)->only(['store', 'update', 'destroy']);
+        Route::resource('/subcategories', AdminSubcategoryController::class)->only(['index', 'store', 'update', 'destroy']);
 
         Route::resource('/works', AdminWorksController::class);
     });

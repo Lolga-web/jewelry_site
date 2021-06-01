@@ -9,6 +9,13 @@ use Illuminate\Support\Str;
 
 class AdminSubcategoryController extends Controller
 {
+    protected $title = 'подкатегории';
+
+    public function index()
+    {
+        return view('admin.subcategory')->with('title', $this->title);
+    }
+
     public function store(Request $request, Subcategory $subcategory)
     {
         $arr = $request->all();
