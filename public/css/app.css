@@ -10570,6 +10570,15 @@ h3 {
     min-height: 80px;
   }
 }
+.contacts_wrp {
+  display: flex;
+}
+.contacts_block {
+  padding: 0;
+}
+.contacts_schedule {
+  padding: 0;
+}
 .contacts_schedule_body {
   display: flex;
   flex-direction: column;
@@ -10586,10 +10595,18 @@ h3 {
   margin: 0;
   text-align: left;
 }
+.contacts_address {
+  margin-bottom: 1rem;
+}
+.contacts_contacts_body {
+  display: flex;
+  flex-direction: column;
+}
 .contacts_map {
   width: 100%;
   height: 400px;
   position: relative;
+  margin-top: 2rem;
 }
 .contacts_map_img {
   width: 100%;
@@ -10603,6 +10620,15 @@ h3 {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
+}
+.admin_menu_item {
+  margin-right: 10px;
+  background-color: rgba(232, 232, 232, 0.7);
+  border-radius: 4px;
+  text-transform: none;
+}
+.admin_menu_item:hover {
+  background-color: #e8e8e8;
 }
 
 .form_wrp {
@@ -10842,6 +10868,9 @@ h3 {
 }
 .footer_address {
   text-align: left;
+}
+.footer_address_text {
+  margin-bottom: 1rem;
 }
 .footer_contacts {
   text-align: left;

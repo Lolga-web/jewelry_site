@@ -46,6 +46,9 @@
     }
     &_address{
         text-align: left;
+        &_text{
+            margin-bottom: 1rem;
+        }
     }
     &_contacts{
         text-align: left;

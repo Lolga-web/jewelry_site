@@ -33,7 +33,7 @@ class AdminCategoryController extends Controller
         $category->slug = Str::slug($request->input('title'), '-');
         $category->fill($request->all())->save();
 
-        return back()->with('success', 'Подкатегория ' . $category->title . ' изменена!');
+        return back()->with('success', 'Категория ' . $category->title . ' изменена!');
     }
 
     public function destroy(Category $category)

@@ -1,5 +1,12 @@
 .contacts{
+    &_wrp{
+        display: flex;
+    }
+    &_block{
+        padding: 0;
+    }
     &_schedule{
+        padding: 0;
         &_body{
             display: flex;
             flex-direction: column;
@@ -17,10 +24,20 @@
             text-align: left;
         }
     }
+    &_address{
+        margin-bottom: 1rem;
+    }
+    &_contacts{
+        &_body{
+            display: flex;
+            flex-direction: column;
+        }
+    }
     &_map{
         width: 100%;
         height: 400px;
         position: relative;
+        margin-top: 2rem;
         &_img{
             width: 100%;
             position: absolute;

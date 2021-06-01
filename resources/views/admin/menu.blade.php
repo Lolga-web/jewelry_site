@@ -1,13 +1,16 @@
 
 <div class="admin_menu">
     <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item admin_menu_item">
+            <a class="nav-link active" href="{{ route('admin.index') }}">данные профиля</a>
+        </li>
+        <li class="nav-item admin_menu_item">
             <a class="nav-link active" href="{{ route('admin.categories.index') }}">категории</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item admin_menu_item">
             <a class="nav-link active" href="{{ route('admin.subcategories.index') }}">подкатегории</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item  admin_menu_item dropdown">
             <p class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">каталог</p>
             <div class="dropdown-menu">
                 @foreach($categories as $category)
@@ -17,10 +20,10 @@
                 @endforeach
             </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item admin_menu_item">
             <a class="nav-link" href="{{ route('admin.works.index') }}">наши работы</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item admin_menu_item">
             <a class="nav-link" href="{{ route('admin.catalog.create') }}">добавить в каталог</a>
         </li>
     </ul>
