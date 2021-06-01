@@ -43,6 +43,10 @@
             margin: 0;
             padding: 0;
         }
+        &_item:hover{
+            color: #deba8f;
+            transition: 0.3s;
+        }
     }
     &_address{
         text-align: left;
@@ -57,6 +61,10 @@
             flex-direction: column;
             & a{
                 margin-bottom: 5px;
+                &:hover{
+                    color: #deba8f;
+                    transition: 0.3s;
+                }
             }
         }
     }

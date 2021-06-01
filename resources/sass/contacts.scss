@@ -1,6 +1,7 @@
 .contacts{
     &_wrp{
         display: flex;
+        flex-wrap: wrap;
     }
     &_block{
         padding: 0;
@@ -31,6 +32,10 @@
         &_body{
             display: flex;
             flex-direction: column;
+            & a:hover{
+                color: #deba8f;
+                transition: 0.3s;
+            }
         }
     }
     &_map{
@@ -45,5 +50,11 @@
             left: 0;
             z-index: -1;
         }
+    }
+}
+
+@media (max-width: 767px){
+    .contacts_block{
+        margin-bottom: 1rem;
     }
 }

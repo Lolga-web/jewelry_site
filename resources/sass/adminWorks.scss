@@ -47,3 +47,15 @@
         }
     }
 }
+
+@media (max-width: 767px){
+    .admin_works_item{
+        width: 100%;
+    }
+    .admin_works_add_form{
+        flex-wrap: wrap;
+        & div{
+            margin-bottom: 10px;
+        }
+    }
+}

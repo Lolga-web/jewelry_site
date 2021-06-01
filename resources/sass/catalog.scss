@@ -1,7 +1,6 @@
 .catalog{
     &_top_message{
         text-align: center;
-        // margin: 0 0 1rem 0;
         margin: 0;
         & a{
             text-decoration: underline;
@@ -12,6 +11,7 @@
     }
     &_subcategory{
         &_list{
+            margin-bottom: 2rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -25,16 +25,21 @@
             margin-bottom: 1%;
             min-height: 300px;
             background-color: #fff;
+            padding: 0;
         }
         &_item{
             width: 100%;
             height: 100%;
-            padding: 10px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid rgba(0,0,0,.125);
+            border: 1px solid rgba(222, 186, 143, 0.5);
+            &:hover{
+                box-shadow: 0 8px 8px 0 rgba(0,0,0,0.05),0 29px 26px 0 rgba(0,0,0,0.08);
+                transition: .3s;
+            }
         }
         &_img{
             max-width: 100%;
@@ -58,7 +63,6 @@
     }
     &_item{
         padding: 10px;
-        // min-height: 300px;
         background-color: #fff;
         &_body{
             width: 100%;
@@ -143,4 +147,24 @@
     position: absolute;
     color: rgba(0,0,0,.3);
     font-size: 0.7rem;
+}
+
+@media (max-width: 992px){
+    .catalog_subcategory_link{
+        width: 32%;
+        margin-bottom: 2%;
+    }
+    .empty{
+        width: 33%;
+    }
+}
+
+@media (max-width: 768px){
+    .catalog_subcategory_link{
+        width: 48%;
+        margin-bottom: 4%;
+    }
+    .empty{
+        width: 48%;
+    }
 }

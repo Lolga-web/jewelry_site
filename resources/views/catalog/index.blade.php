@@ -6,17 +6,15 @@
 
     @include('catalog.breadcrumb')
 
-    <h2 class="catalog_title">Каталог</h2>
-
     <div class="catalog_list">
         @if($categories)
             @foreach($categories as $category)
-                <h3 class="catalog_category_title">{{ $category->title }}</h3>
+                <h2 class="main_content_title">{{ $category->title }}</h2>
                 @if($subcategories)
                     <div class="catalog_subcategory_list">
                         @foreach($subcategories as $subcategory)
                             @if($category->id == $subcategory->category_id)
-                                <a class="catalog_subcategory_link col-lg-3 col-md-4 col-sm-6 col-6" 
+                                <a class="catalog_subcategory_link"
                                     href="{{ route('catalog.category.show', ['slug' => $category->slug, 'subslug' => $subcategory->slug]) }}">
                                     <div class="catalog_subcategory_item">
                                         <div class="catalog_subcategory_img_wrp">
@@ -27,7 +25,7 @@
                                 </a>
                             @endif
                         @endforeach
-                        <a href="{{ route('catalog.category.show', $category->slug) }}" class="catalog_subcategory_link col-lg-3 col-md-4 col-sm-6 col-6">
+                        <a href="{{ route('catalog.category.show', $category->slug) }}" class="catalog_subcategory_link">
                             <div class="catalog_subcategory_item">
                                 <div class="catalog_subcategory_img_wrp">
                                     <img src="" alt="subcategory_img" class="catalog_subcategory_img">
