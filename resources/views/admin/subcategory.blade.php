@@ -58,9 +58,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
-                       Добавить
-                    </button>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
                 </form>
 
                 <div class="admin_category_list">
@@ -84,9 +82,7 @@
                                             value="{{ $subcategory->title ?? '' }}" placeholder="Название...">
                                         <input id="admin_category_add_img" class="admin_category_add_title" type="text" class="form-control" name="img"
                                             value="{{ $subcategory->img ?? '' }}" placeholder="Изображение...">
-                                            <button type="submit" class="btn btn-success">
-                                                Изменить
-                                             </button>
+                                        <button type="submit" class="btn btn-success">Изменить</button>
                                     </form>
                                 </div>
                             </div>
