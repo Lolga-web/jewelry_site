@@ -17,6 +17,10 @@
 @import 'works.scss';
 @import 'contacts.scss';
 @import 'admin.scss';
+@import 'adminCategory.scss';
+@import 'adminWorks.scss';
+@import 'adminAddProduct.scss';
+@import 'adminProducts.scss';
 @import 'footer.scss';
 
 *, a {
@@ -29,6 +33,9 @@ a:hover{
 }
 li{
     list-style-type: none;
+}
+p{
+    margin: 0;
 }
 .btn:focus{
     box-shadow: none;
